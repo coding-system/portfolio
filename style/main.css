@@ -1,5 +1,5 @@
 body {
-   background-color: rgb(100, 100, 100);
+   background-color: rgb(41, 41, 41);
    mix-blend-mode: difference;
 }
 
@@ -12,8 +12,7 @@ body {
 }
 
 .hello {
-   font-size: 48px;
+   font-size: 55px;
    font-family: sans-serif;
-
-   color: rgb(39, 39, 39);
+   color: rgb(134, 134, 134);
 }

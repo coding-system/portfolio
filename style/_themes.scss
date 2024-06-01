@@ -1,0 +1,15 @@
+:root.theme-dark {
+   $bg-major: $dk-bg-major;
+   background-color: $bg-major;
+}
+
+:root.theme-light {
+   $bg-major: $dk-accent;
+   background-color: $lt-bg-major;
+}
+
+@media (prefers-color-scheme: light) {
+   :root {
+      background-color: #0011ff;
+   }
+}

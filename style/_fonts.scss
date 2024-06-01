@@ -1,0 +1,25 @@
+@font-face {
+   font-display: swap;
+   font-family: "Inter-Variable";
+   src: local("Inter-Variable"),
+      url("../fonts/Inter-Variable.woff2") format("woff2 supports variations"),
+      url("../fonts/Inter-Variable.woff2") format("woff2-variations");
+   font-weight: 100 785;
+}
+
+@font-face {
+   font-display: swap;
+   font-family: "SpaceGrotesk-Variable";
+   src: local("SpaceGrotesk-Variable"),
+      url("../fonts/SpaceGrotesk-VariableFont_wght.ttf")
+         format("ttf supports variations");
+   font-weight: 400 800;
+}
+
+@font-face {
+   font-family: "Space Grotesk";
+   src: url("../fonts/SpaceGrotesk-Bold.ttf") format("ttf");
+   font-weight: 700;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");

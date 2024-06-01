@@ -1,0 +1,52 @@
+//Colors
+$body-bg-color: #b3b3b3;
+$wrapper-bg0color: #ffa2a2;
+
+//Vars
+$dark: #151515;
+$middark: #1b1b1b;
+$semidark: #242424;
+$light: #fff;
+$wq: #444444;
+$semilight: #c0c0c0;
+$accent: #6c1bf0;
+$bright1: #c900ff;
+$bright2: #6200ff;
+$focus: #4ee1a0;
+$attention: #ff6f5b;
+
+//Dark theme
+$dk-bg-major: $dark;
+$dk-bg-minor: $semidark;
+$dk-text-major: $light;
+$dk-text-minor: $semilight;
+$dk-accent: $accent;
+$dk-focus: $focus;
+$dk-attention: $attention;
+$dk-shadow: $middark;
+
+//Light theme
+$lt-bg-major: $light;
+$lt-bg-minor: $semilight;
+$lt-text-major: $dark;
+$lt-text-minor: $semidark;
+$dk-accent: $accent;
+$dk-focus: $focus;
+$dk-attention: $attention;
+$dk-shadow: $semidark;
+
+//Main
+$bg-major: $dk-bg-major;
+$bg-minor: $dk-bg-minor;
+$text-major: $dk-text-major;
+$text-minor: $dk-text-minor;
+$shadow-major: $dk-shadow;
+$accent: $dk-accent;
+$focus: $dk-focus;
+$attention: $dk-attention;
+
+//Font
+$font-special: "Space Grotesk", Arial, Helvetica, sans-serif;
+$font-default: "Inter-Variable", Arial, Helvetica, sans-serif;
+
+

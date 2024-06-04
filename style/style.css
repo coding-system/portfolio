@@ -869,9 +869,14 @@ body {
   color: rgb(255, 255, 255);
 }
 .contacts__form {
+  background-color: #353535;
+  border-radius: 10px;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 10px;
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 24px;
   width: 545px;
 }
 .contacts__form .form-feald {
@@ -926,14 +931,20 @@ body {
   justify-self: end;
   font-family: "Space Grotesk", Arial, Helvetica, sans-serif;
   text-transform: uppercase;
-  max-width: 145px;
+  width: 100%;
   align-self: flex-end;
   padding: 0;
   margin: 0;
+  background-color: #ffc552;
+  min-height: 45px;
+  border-radius: 10px;
+  transition: 0.2s ease;
+  color: #151515;
 }
 .contacts__form-submit:hover {
-  color: #ff6f5b;
+  color: #151515;
   cursor: pointer;
+  background-color: #ffaf0f;
 }
 
 .footer__nav {
@@ -1017,8 +1028,9 @@ body {
   z-index: 3;
 }
 .skill__item:hover .skill__item__box {
-  scale: 0;
+  scale: 0.5;
   transform: rotate(-45deg);
+  opacity: 0;
 }
 .skill__item:hover .skill__item__other {
   transform: rotate(0deg);

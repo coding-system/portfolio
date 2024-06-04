@@ -50,3 +50,173 @@ $font-special: "Space Grotesk", Arial, Helvetica, sans-serif;
 $font-default: "Inter-Variable", Arial, Helvetica, sans-serif;
 
 
+
+
+// 
+// 
+// 
+// 
+// .skill {
+//    position: relative;
+//    padding-bottom: 50px;
+//    border-bottom: 2px solid $text-major;
+
+//    &__list {
+//       width: 100%;
+//       padding: 0;
+//       margin-top: 40px;
+//       display: grid;
+//       grid-template-columns: repeat(4, min-content);
+
+//       grid-template-rows: auto;
+//       row-gap: 60px;
+//       // column-gap: 100px;
+//       // row-gap: 80px;
+//       align-items: center;
+//       justify-content: space-around;
+//    }
+
+//    &__item {
+//       position: relative;
+//       background-color: #3c3c3c;
+//       border-radius: 10px;
+//       width: 132px;
+//       padding: 10px;
+//       display: flex;
+//       flex-direction: column;
+//       align-items: center;
+//       justify-content: center;
+//       gap: 4px;
+//       box-shadow: inset 0 0 60px $dk-shadow;
+//       transition: all 0.3s ease;
+//       overflow: hidden;
+//       z-index: 2;
+
+//       &:hover {
+//          scale: 2.1;
+//          transform: rotate(-5deg) scale(1.1);
+
+//          z-index: 3;
+//       }
+
+//       &:hover .skill__item__box {
+//          // scale: 0;
+//          transform: translateY(-150%);
+//       }
+
+//       &:hover .skill__item__other {
+//          // transform: rotate(0deg);
+//          opacity: 1;
+//          transform: translateY(0);
+//       }
+
+//       &__box {
+//          position: relative;
+//          border-radius: 10px;
+//          max-height: 150px;
+//          padding: 10px;
+//          display: flex;
+//          flex-direction: column;
+//          align-items: center;
+//          justify-content: center;
+//          gap: 4px;
+//          // box-shadow: inset 0 0 60px $dk-shadow;
+//          transition: all 0.3s ease;
+//          overflow: hidden;
+//          transform: translateY(0);
+//          z-index: 2;
+
+//          // &:hover .skill__item-discription {
+//          //    opacity: 1;
+//          //    transform: translateY(0);
+//          // }
+
+//          // &:hover svg {
+//          //    scale: 0;
+//          //    opacity: 0;
+//          //    transform: rotate(-45deg);
+//          // }
+
+//          &-title {
+//             font-family: $font-default;
+//             font-size: 18px;
+//             font-variation-settings: "wght" 400;
+//          }
+
+//          &-text {
+//             font-family: $font-default;
+//             font-size: 14px;
+//             font-variation-settings: "wght" 200;
+//             opacity: 0.5;
+//          }
+
+//          svg {
+//             transition: 0.3s ease;
+//          }
+
+//          .html-icon {
+//             width: 80px;
+//             height: 100px;
+//             fill: #e54c25;
+//          }
+
+//          .css-icon {
+//             width: 80px;
+//             height: 100px;
+//             fill: #42a5f5;
+//          }
+
+//          .sass-icon {
+//             width: 80px;
+//             height: 100px;
+//             fill: #cf649a;
+//          }
+
+//          .js-icon {
+//             width: 80px;
+//             height: 100px;
+//             fill: #ffca28;
+//          }
+
+//          .git-icon {
+//             width: 80px;
+//             height: 100px;
+//          }
+
+//          .figma-icon {
+//             width: 80px;
+//             height: 100px;
+//          }
+
+//          .react-icon {
+//             width: 80px;
+//             height: 100px;
+//          }
+
+//          .ts-icon {
+//             width: 80px;
+//             height: 100px;
+//          }
+//       }
+
+//       &__other {
+//          position: absolute;
+//          top: 0;
+//          left: 0;
+//          transform: translateY(150%);
+//          width: 100%;
+//          height: 100%;
+//          padding: 10px;
+//          box-sizing: border-box;
+//          opacity: 0;
+//          transition: all 0.3s ease;
+
+//          &-discription {
+//             margin: 0;
+//             font-size: 8px;
+//             color: #ffffff;
+//             line-height: 1.4;
+//          }
+//       }
+//    }
+// }

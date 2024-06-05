@@ -1017,14 +1017,17 @@ body {
   align-items: center;
   justify-content: center;
   gap: 4px;
+  border: 2px solid #6c1bf0;
   box-shadow: inset 0 0 60px #242424;
   transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
   overflow: hidden;
   z-index: 2;
 }
 .skill__item:hover {
+  box-shadow: inset 0 0 60px #444444;
   scale: 1.8;
   transform: rotate(-5deg) scale(1.1);
+  border: 2px solid inherit;
   z-index: 3;
 }
 .skill__item:hover .skill__item__box {

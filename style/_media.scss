@@ -1,0 +1,18 @@
+// @media (2560px <= width) {
+//    $preview-iframe-scale: 0;
+
+//    .body {
+//       font-size: 14px;
+//    }
+
+//    .preview__iframe {
+//       transform: scale($preview-iframe-scale);
+//    }
+// }
+
+@media (2560px <= width) {
+ 
+   .preview__iframe {
+     transform: scale($preview-iframe-scale-2k); // Используем CSS-переменную
+   }
+ }

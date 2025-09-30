@@ -14,6 +14,8 @@ $bright1: #c900ff;
 $bright2: #6200ff;
 $focus: #4ee1a0;
 $attention: #ff6f5b;
+$fire: #ffaf0f;
+$orange: #ff5b0f;
 
 //Dark theme
 $dk-bg-major: $dark;
@@ -49,6 +51,13 @@ $attention: $dk-attention;
 $font-special: "Space Grotesk", Arial, Helvetica, sans-serif;
 $font-default: "Inter-Variable", Arial, Helvetica, sans-serif;
 
+//Other
+$preview-iframe-scale-fhd: 0.199;
+$preview-iframe-scale-2k: 0.271;
+
+// :root {
+//    --preview-iframe-scale: 0.199; // Базовое значение
+//  }
 
 
 

@@ -56,13 +56,14 @@ function renderProjects() {
       const githubLink = projectItem.querySelector(".preview__links-code");
       githubLink.href = project.githubLink;
 
-      // Обновляем src для iframe
-      const iframe = projectItem.querySelector(".preview__iframe");
-      if (iframe) {
-         iframe.src = project.siteLink;
+      // Обновляем src для изображения
+      const image = projectItem.querySelector(".preview__image");
+      if (image) {
+         image.src = `../images/projects/${project.image}`;
+         image.alt = project.name;
       } else {
          console.warn(
-            "Элемент iframe с классом .preview__iframe не найден в шаблоне"
+            "Элемент img с классом .preview__image не найден в шаблоне"
          );
       }
 
@@ -77,6 +78,14 @@ function renderProjects() {
          });
       } else {
          console.warn("Элемент .info__svg не найден в шаблоне проекта");
+      }
+
+      // Кнопка "Подробнее" — открытие модального окна и наполнение данными
+      const detailsBtn = projectItem.querySelector(".preview__links-more");
+      if (detailsBtn) {
+         detailsBtn.addEventListener("click", function () {
+            openProjectModal(project);
+         });
       }
 
       projectsList.appendChild(projectItem);
@@ -143,8 +152,125 @@ function renderSkills() {
    });
 }
 
+// Функция для горизонтальной прокрутки проектов
+function initProjectsScroll() {
+   const projectsList = document.querySelector(".projects__list");
+   if (!projectsList) return;
+
+   // Обработка прокрутки колесиком мыши
+   projectsList.addEventListener("wheel", function (e) {
+      e.preventDefault();
+
+      // Получаем первую карточку для вычисления ширины
+      const firstCard = projectsList.querySelector(".projects__item");
+      if (!firstCard) return;
+
+      // Вычисляем ширину карточки + отступ (gap)
+      const cardWidth = firstCard.offsetWidth;
+      const gap = 32; // 2em = 32px (если font-size: 1rem = 16px)
+      const scrollAmount = cardWidth + gap;
+
+      if (e.deltaY > 0) {
+         // Прокрутка вправо на одну карточку
+         projectsList.scrollLeft += scrollAmount;
+      } else {
+         // Прокрутка влево на одну карточку
+         projectsList.scrollLeft -= scrollAmount;
+      }
+   });
+
+   // Обработка клавиш стрелок
+   projectsList.addEventListener("keydown", function (e) {
+      const firstCard = projectsList.querySelector(".projects__item");
+      if (!firstCard) return;
+
+      const cardWidth = firstCard.offsetWidth;
+      const gap = 32;
+      const scrollAmount = cardWidth + gap;
+
+      if (e.key === "ArrowRight") {
+         e.preventDefault();
+         projectsList.scrollLeft += scrollAmount;
+      } else if (e.key === "ArrowLeft") {
+         e.preventDefault();
+         projectsList.scrollLeft -= scrollAmount;
+      }
+   });
+
+   // Делаем контейнер фокусируемым для клавиатуры
+   projectsList.setAttribute("tabindex", "0");
+}
+
 // Запуск рендеринга при загрузке DOM
 document.addEventListener("DOMContentLoaded", function () {
    renderProjects();
    renderSkills();
+   initProjectsScroll();
 });
+
+// ===== Modal logic =====
+function openProjectModal(project) {
+   const modal = document.getElementById("project-modal");
+   if (!modal) return;
+
+   const titleEl = modal.querySelector("#modal-title");
+   const descEl = modal.querySelector("#modal-description");
+   const yearEl = modal.querySelector("#modal-year");
+   const instrWrap = modal.querySelector("#modal-instruments");
+   const siteEl = modal.querySelector("#modal-site");
+   const githubEl = modal.querySelector("#modal-github");
+   if (titleEl) titleEl.textContent = project.name || "";
+   if (descEl) descEl.textContent = project.info || project.description || "";
+   if (yearEl) yearEl.textContent = project.year || "";
+   if (siteEl) siteEl.href = project.siteLink || "#";
+   if (githubEl) githubEl.href = project.githubLink || "#";
+
+   if (instrWrap) {
+      instrWrap.innerHTML = "";
+      (project.instruments || []).forEach(function (instrument) {
+         const icon = createInstrumentIcon(instrument);
+         if (icon) instrWrap.appendChild(icon);
+      });
+   }
+
+   modal.classList.add("is-open");
+
+   // Добавляем класс is-open для overlay
+   const overlay = modal.querySelector(".modal__overlay");
+   if (overlay) {
+      overlay.classList.add("is-open");
+   }
+
+   document.body.style.overflow = "hidden";
+
+   // Close handlers
+   const closeTargets = modal.querySelectorAll("[data-modal-close]");
+   closeTargets.forEach(function (el) {
+      el.addEventListener("click", closeProjectModal, { once: true });
+   });
+
+   document.addEventListener("keydown", handleEscClose);
+}
+
+function closeProjectModal() {
+   const modal = document.getElementById("project-modal");
+   if (!modal) return;
+   modal.classList.remove("is-open");
+
+   // Убираем класс is-open с overlay
+   const overlay = modal.querySelector(".modal__overlay");
+   if (overlay) {
+      overlay.classList.remove("is-open");
+   }
+
+   // Восстанавливаем прокрутку основной страницы
+   document.body.style.overflow = "";
+
+   document.removeEventListener("keydown", handleEscClose);
+}
+
+function handleEscClose(e) {
+   if (e.key === "Escape") {
+      closeProjectModal();
+   }
+}

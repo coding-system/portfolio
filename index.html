@@ -81,9 +81,7 @@
                   </div> -->
                      <!-- <div class="skobki noselect">&gt;&lt;</div> -->
                      <h1 class="hero__title">
-                        <p class="hero__title_hello">
-                           Hi. Welcome to my site 👋
-                        </p>
+                        <p class="hero__title_hello">Hi. Welcome to my site</p>
                         <p class="hero__title_name">
                            I'm
                            <span class="hero__title_special"
@@ -99,7 +97,7 @@
                      </p>
 
                      <div class="hero__links">
-                        <a
+                        <!-- <a
                            href="https://www.codewars.com/users/coding-system"
                            target="_blank"
                            class="github__link"
@@ -109,7 +107,7 @@
                                  href="../svg/codewars.svg#codewars-icon"
                               ></use>
                            </svg>
-                        </a>
+                        </a> -->
                         <a
                            href="https://github.com/coding-system"
                            target="_blank"
@@ -179,7 +177,7 @@
                   </div>
                </div>
                <div class="skills">
-                  <h3 class="skills__title">Skills</h3>
+                  <!-- <h3 class="skills__title">Skills</h3> -->
                   <ul class="skills__list"></ul>
                </div>
             </section>
@@ -194,45 +192,10 @@
       </div>
       <div class="wrapper">
          <footer class="footer">
-            <section class="contacts content-wrapper" id="contacts">
+            <!-- <section class="contacts content-wrapper" id="contacts">
                <div class="contacts__info">
                   <h2 class="main__title">Contacts</h2>
-                  <!-- <p class="contacts__description">
-                     I would love to hear about your project and how I can help.
-                     Please fill in the form, and I’ll get back to you as soon
-                     as possible.
-                  </p> -->
                   <ul class="contacts__links">
-                     <!-- <li class="contacts__links-item">
-                        <a
-                           href="tel:+79651288177"
-                           class="contacts__links-email"
-                        >
-                           <svg class="phone-icon">
-                              <use
-                                 href="../images/icons/phone.svg#phone-icon"
-                              ></use>
-                           </svg>
-                           <span class="contacts__links-content"
-                              >+7 (965) 128-81-77</span
-                           >
-                        </a>
-                     </li>
-                     <li class="contacts__links-item">
-                        <a
-                           href="mailto:mail@htmlacademy.ru"
-                           class="contacts__links-email"
-                        >
-                           <svg class="email-icon">
-                              <use
-                                 href="../images/icons/email.svg#email-icon"
-                              ></use>
-                           </svg>
-                           <span class="contacts__links-content"
-                              >amocodingsystem@gmail.com</span
-                           >
-                        </a>
-                     </li> -->
                      <li class="contacts__links-items">
                         <svg class="phone-icon">
                            <use
@@ -261,20 +224,9 @@
                               class="contacts__links-contents"
                               >amocodingsystem@gmail.com</a
                            >
-                           <!-- <svg class="copy-icon">
-                              <use
-                                 href="../images/icons/copy.svg#copy-icon"
-                              ></use>
-                           </svg> -->
                         </div>
                      </li>
                   </ul>
-                  <!-- <ul class="contacts__social">
-                     <ul class="contacts__social-item"></ul>
-                     <ul class="contacts__social-item"></ul>
-                     <ul class="contacts__social-item"></ul>
-                     <ul class="contacts__social-item"></ul>
-                  </ul> -->
                </div>
                <div class="contacts__form">
                   <input
@@ -296,7 +248,7 @@
                      send message
                   </button>
                </div>
-            </section>
+            </section> -->
             <section class="footer__nav">
                <div class="logo noselect">
                   <a href="#" class="logo__link">
@@ -321,21 +273,23 @@
          <li class="projects__item">
             <div class="projects__item-content">
                <div class="preview">
-                  <iframe
-                     scrolling="no"
-                     src=""
-                     class="preview__iframe"
-                     sandbox="allow-scripts allow-same-origin"
-                  ></iframe>
+                  <img src="" alt="" class="preview__image" />
                   <div class="overlay"></div>
                   <div class="preview__links">
-                     <a href="" target="_blank" class="preview__links-item preview__links-site">
+                     <a
+                        href=""
+                        target="_blank"
+                        class="preview__links-item preview__links-site"
+                     >
                         <svg class="preview__links-icon-link">
                            <use href="../images/icons/link.svg#link-icon"></use>
                         </svg>
                         <span class="preview__links-text">Открыть сайт</span>
                      </a>
-                     <a href="" target="_blank" class="preview__links-item preview__links-code"
+                     <a
+                        href=""
+                        target="_blank"
+                        class="preview__links-item preview__links-code"
                         ><svg class="preview__links-icon-github">
                            <use
                               href="../images/icons/github.svg#github-icon"
@@ -354,8 +308,7 @@
                <div class="text">
                   <header class="info">
                      <h3 class="info__title"></h3>
-                     <div class="info__svg">
-                     </div>
+                     <div class="info__svg"></div>
                   </header>
                   <main class="info__description">
                      <p class="info__description-text"></p>
@@ -371,9 +324,7 @@
          <li class="skills__item">
             <div class="skills__item__box">
                <svg class="skills-icon html-icon">
-                  <use
-                     href=""
-                  ></use>
+                  <use href=""></use>
                </svg>
                <h3 class="skills__item__box-title"></h3>
                <p class="skills__item__box-text"></p>
@@ -388,6 +339,53 @@
             </div>
          </li>
       </template>
+      <!-- Modal for project details -->
+      <div
+         class="modal"
+         id="project-modal"
+         aria-hidden="true"
+         role="dialog"
+         aria-modal="true"
+      >
+         <div class="modal__overlay" data-modal-close></div>
+         <div class="modal__content" role="document">
+            <button
+               class="modal__close"
+               type="button"
+               aria-label="Close"
+               data-modal-close
+            >
+               <!-- ✕ -->
+            </button>
+
+            <div class="modal__info">
+               <h3 class="modal__title" id="modal-title"></h3>
+               <p class="modal__description" id="modal-description"></p>
+               <div class="modal__meta">
+                  <span class="modal__year" id="modal-year"></span>
+               </div>
+               <div class="modal__instruments" id="modal-instruments"></div>
+               <div class="modal__links">
+                  <a
+                     href="#"
+                     target="_blank"
+                     rel="noopener"
+                     class="modal__link"
+                     id="modal-site"
+                     >Открыть сайт</a
+                  >
+                  <a
+                     href="#"
+                     target="_blank"
+                     rel="noopener"
+                     class="modal__link"
+                     id="modal-github"
+                     >Открыть код</a
+                  >
+               </div>
+            </div>
+         </div>
+      </div>
       <script type="module" src="./index.js"></script>
    </body>
 </html>

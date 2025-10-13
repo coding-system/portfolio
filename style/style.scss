@@ -283,22 +283,20 @@ html {
    &__content {
       display: flex;
       flex-direction: row;
-      gap: 5em;
       justify-content: space-between;
       width: 100%;
    }
 }
 
 .photo {
-   position: relative;
    right: 0;
-   top: -5em;
-   width: 40%;
+   top: -10em;
+   width: 30%;
    // background-color: #5c5c5c;
    // box-shadow: 10px 10px #373737;
 
    &__img {
-      border-radius: 2.2em;
+      border-radius: 100px;
       width: 100%;
    }
 }
@@ -312,8 +310,8 @@ html {
    align-items: start;
    gap: 1em;
    padding-bottom: 2em;
-   max-width: 60%;
-
+   max-width: 70%;
+   width: 100%;
    // &::before {
    //    position: absolute;
    //    content: "";

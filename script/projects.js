@@ -29,33 +29,6 @@ export const projects = [
       year: "2024",
       instruments: ["html", "sass", "js"],
    },
-   {
-      name: "Catalog of devs websites",
-      image: "random.jpg",
-      description: "Мой сайт портфолио",
-      siteLink: "https://project.codingsystem.ru/catalog",
-      githubLink: "https://github.com/coding-system",
-      year: "2024",
-      instruments: ["html", "css", "js"],
-   },
-   {
-      name: "Catalog of devs websites",
-      image: "random.jpg",
-      description: "Мой сайт портфолио",
-      siteLink: "https://project.codingsystem.ru/catalog",
-      githubLink: "https://github.com/coding-system",
-      year: "2024",
-      instruments: ["html", "css", "js"],
-   },
-   {
-      name: "Catalog of devs websites",
-      image: "random.jpg",
-      description: "Мой сайт портфолио",
-      siteLink: "https://project.codingsystem.ru/catalog",
-      githubLink: "https://github.com/coding-system",
-      year: "2024",
-      instruments: ["html", "css", "js"],
-   },
 ];
 
 export const skills = [

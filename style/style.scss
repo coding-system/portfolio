@@ -2,6 +2,7 @@
 @import "fonts.scss";
 @import "vars.scss";
 @import "themes.scss";
+@import "slider.scss";
 
 // * {
 //    outline: 1px solid #fff;
@@ -71,7 +72,6 @@ html {
 
 .content-wrapper {
    margin: 0 auto;
-   width: 65vw;
 }
 
 .theme-menu {
@@ -276,13 +276,30 @@ html {
 }
 
 .hero-bar {
+   position: relative;
    padding-top: 15em;
    padding-bottom: 5em;
    background-image: linear-gradient(#0e0e0e, #242424);
    &__content {
       display: flex;
       flex-direction: row;
+      gap: 5em;
       justify-content: space-between;
+      width: 100%;
+   }
+}
+
+.photo {
+   position: relative;
+   right: 0;
+   top: -5em;
+   width: 40%;
+   // background-color: #5c5c5c;
+   // box-shadow: 10px 10px #373737;
+
+   &__img {
+      border-radius: 2.2em;
+      width: 100%;
    }
 }
 
@@ -295,6 +312,7 @@ html {
    align-items: start;
    gap: 1em;
    padding-bottom: 2em;
+   max-width: 60%;
 
    // &::before {
    //    position: absolute;
@@ -320,10 +338,11 @@ html {
       }
 
       &_name {
+         margin-left: -0.04em;
          line-height: 100%;
          text-size-adjust: 100%;
          position: relative;
-         font-size: 7.5em;
+         font-size: 7.1em;
          color: #fff;
          &::before {
             content: "";
@@ -495,17 +514,6 @@ html {
    }
 }
 
-.photo {
-   position: relative;
-   right: 0;
-   top: 0;
-   // background-color: #5c5c5c;
-   // box-shadow: 10px 10px #373737;
-
-   &__img {
-      width: 400px;
-   }
-}
 
 .main {
    display: flex;
@@ -747,7 +755,7 @@ html {
          }
 
          .skills-icon {
-            width: 100%
+            width: 100%;
          }
 
          .html-icon {
@@ -832,7 +840,7 @@ html {
       display: flex;
       flex-direction: column;
       background: rgb(0, 0, 0);
-      background: linear-gradient(0deg, #535353, #666666);
+      background: linear-gradient(0deg, #303030, #4b4b4b);
       padding: 0.8em;
       border-radius: 1.8em;
       // min-height: 100%;

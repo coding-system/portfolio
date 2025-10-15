@@ -19,58 +19,65 @@
    <body class="body">
       <div class="wrapper">
          <header class="header">
-            <nav class="nav content-wrapper">
-               <div class="logo noselect">
-                  <a href="#" class="logo__link">
-                     <span class="logo__link-start">coding</span>
-                     <span class="logo__link-end">system</span>
-                  </a>
-               </div>
-               <ul class="menu">
-                  <li class="menu__item">
-                     <a href="#about" class="menu__link">About</a>
-                  </li>
-                  <li class="menu__item">
-                     <a href="#projects" class="menu__link">Projects</a>
-                  </li>
-                  <li class="menu__item">
-                     <a href="#contacts" class="menu__link">Contacts</a>
-                  </li>
-               </ul>
-            </nav>
+            <div class="content-wrapper">
+               <nav class="nav">
+                  <div class="logo noselect">
+                     <a href="#" class="logo__link">
+                        <span class="logo__link-start">coding</span>
+                        <span class="logo__link-end">system</span>
+                     </a>
+                  </div>
+                  <ul class="menu">
+                     <li class="menu__item">
+                        <a href="#about" class="menu__link">About</a>
+                     </li>
+                     <li class="menu__item">
+                        <a href="#projects" class="menu__link">Projects</a>
+                     </li>
+                     <li class="menu__item">
+                        <a href="#contacts" class="menu__link">Contacts</a>
+                     </li>
+                  </ul>
+               </nav>
+            </div>
          </header>
       </div>
       <div class="wrapper">
          <main class="main">
             <section class="hero-bar">
-               <div class="hero-bar__content content-wrapper">
-                  <div class="hero">
-                     <div class="circles">
-                        <div class="circle1"></div>
-                        <div class="circle2"></div>
-                        <div class="circle3"></div>
-                        <div class="circle4"></div>
-                        <div class="circle5"></div>
-                     </div>
-                     <!-- <div class="skobki noselect">&gt;&lt;</div> -->
-                     <h1 class="hero__title">
-                        <p class="hero__title_hello">Hi. Welcome to my site</p>
-                        <p class="hero__title_name">
-                           I'm
-                           <span class="hero__title_special"
-                              >Kirill Sheyanov</span
-                           >, a Front-end developer.
+               <div class="content-wrapper">
+                  <div class="hero-bar__content">
+                     <div class="hero">
+                        <div class="circles">
+                           <div class="circle1"></div>
+                           <div class="circle2"></div>
+                           <div class="circle3"></div>
+                           <div class="circle4"></div>
+                           <div class="circle5"></div>
+                           <div class="circle6"></div>
+                           <div class="circle7"></div>
+                        </div>
+                        <!-- <div class="skobki noselect">&gt;&lt;</div> -->
+                        <h1 class="hero__title">
+                           <p class="hero__title_hello">
+                              Hi. Welcome to my site
+                           </p>
+                           <p class="hero__title_name">
+                              I'm
+                              <span class="hero__title_special"
+                                 >Kirill Sheyanov</span
+                              >, a Front-end developer.
+                           </p>
+                        </h1>
+                        <p class="hero__description">
+                           And this is my small portfolio website. Here you can
+                           find some information about me and get to know about
+                           my projects. Thank you for visiting, and I hope you
+                           enjoy exploring my portfolio.
                         </p>
-                     </h1>
-                     <p class="hero__description">
-                        And this is my small portfolio
-                        website. Here you can find some information about me and
-                        get to know about my projects. Thank you for visiting,
-                        and I hope you enjoy exploring my portfolio.
-                     </p>
 
-                     <div class="hero__links">
-                        <!-- <a
+                        <div class="hero__links">
+                           <!-- <a
                            href="https://www.codewars.com/users/coding-system"
                            target="_blank"
                            class="github__link"
@@ -81,85 +88,96 @@
                               ></use>
                            </svg>
                         </a> -->
-                        <a
-                           href="https://github.com/coding-system"
-                           target="_blank"
-                           class="github__link"
-                        >
-                           <svg class="hero__links-icon">
-                              <use href="../svg/github.svg#github-icon"></use>
-                           </svg>
-                        </a>
+                           <a
+                              href="https://github.com/coding-system"
+                              target="_blank"
+                              class="github__link"
+                           >
+                              <svg class="hero__links-icon">
+                                 <use
+                                    href="../svg/github.svg#github-icon"
+                                 ></use>
+                              </svg>
+                           </a>
+                        </div>
+                        <div class="hero__buttons">
+                           <span class="hero__buttons-item"
+                              ><a class="hero__buttons-item_content"
+                                 >Read resume</a
+                              ></span
+                           >
+                        </div>
                      </div>
-                     <div class="hero__buttons">
-                        <span class="hero__buttons-item"
-                           ><a class="hero__buttons-item_content"
-                              >Read resume</a
-                           ></span
-                        >
+                     <div class="photo">
+                        <img
+                           src="../images/photo.jpg"
+                           alt=""
+                           class="photo__img"
+                        />
                      </div>
-                  </div>
-                  <div class="photo">
-                     <img src="../images/photo.jpg" alt="" class="photo__img" />
                   </div>
                </div>
             </section>
-            <section class="section-line about content-wrapper" id="about">
-               <header class="about__header">
-                  <h2 class="main__title">About</h2>
-                  <h3 class="main__subtitle">Let's get acquainted.</h3>
-               </header>
-               <div class="about__main">
-                  <div class="about__item myinfo">
-                     <div class="about__item__title">
-                        <h3 class="about__item__title-text">My info</h3>
-                        <span class="about__item__title-emoji">💁‍♂️</span>
-                     </div>
+            <div class="content-wrapper">
+               <section class="section-line about" id="about">
+                  <header class="about__header">
+                     <h2 class="main__title">About</h2>
+                     <h3 class="main__subtitle">Let's get acquainted.</h3>
+                  </header>
+                  <div class="about__main">
+                     <div class="about__item myinfo">
+                        <div class="about__item__title">
+                           <h3 class="about__item__title-text">My info</h3>
+                           <span class="about__item__title-emoji">💁‍♂️</span>
+                        </div>
 
-                     <div class="about__item__content">
-                        <p class="about__item__text">
-                           Я — фронт-энд-разработчик, увлечённый созданием
-                           современных и удобных веб-интерфейсов. Мне нравится
-                           воплощать идеи в жизнь с помощью кода и делать сайты
-                           не только красивыми, но и функциональными. Я ценю
-                           простоту, удобство и стиль во всем, что создаю.
-                           Разработка для меня — это не только работа, но и
-                           способ самовыражения.
-                        </p>
+                        <div class="about__item__content">
+                           <p class="about__item__text">
+                              Я — фронт-энд-разработчик, увлечённый созданием
+                              современных и удобных веб-интерфейсов. Мне
+                              нравится воплощать идеи в жизнь с помощью кода и
+                              делать сайты не только красивыми, но и
+                              функциональными. Я ценю простоту, удобство и стиль
+                              во всем, что создаю. Разработка для меня — это не
+                              только работа, но и способ самовыражения.
+                           </p>
+                        </div>
                      </div>
-                  </div>
-                  <div class="about__item education">
-                     <div class="about__item__title">
-                        <h3 class="about__item__title-text">Education</h3>
-                        <span class="about__item__title-emoji">👨‍🎓</span>
-                     </div>
+                     <div class="about__item education">
+                        <div class="about__item__title">
+                           <h3 class="about__item__title-text">Education</h3>
+                           <span class="about__item__title-emoji">👨‍🎓</span>
+                        </div>
 
-                     <div class="about__item__content">
-                        <p class="about__item__text">
-                           Бакалавриат РГАУ-МСХА им. К.А. Тимирязева, факультет
-                           экономики и управления АПК, кафедра прикладной
-                           информатики, направление "Прикладная информатика в
-                           экономике". 2019 г.
-                        </p>
-                        <p class="about__item__text">
-                           Яндекс.Практикум, курс "Фронтенд-разработчик". 2025
-                           г.
-                        </p>
+                        <div class="about__item__content">
+                           <p class="about__item__text">
+                              Бакалавриат РГАУ-МСХА им. К.А. Тимирязева,
+                              факультет экономики и управления АПК, кафедра
+                              прикладной информатики, направление "Прикладная
+                              информатика в экономике". 2019 г.
+                           </p>
+                           <p class="about__item__text">
+                              Яндекс.Практикум, курс "Фронтенд-разработчик".
+                              2025 г.
+                           </p>
+                        </div>
                      </div>
                   </div>
-               </div>
-               <div class="skills">
-                  <!-- <h3 class="skills__title">Skills</h3> -->
-                  <ul class="skills__list"></ul>
-               </div>
-            </section>
-            <section class="projects content-wrapper" id="projects">
-               <header class="about__header">
-                  <h2 class="main__title">Projects</h2>
-                  <h3 class="main__subtitle">Checkout my work.</h3>
-               </header>
-               <ul class="projects__list"></ul>
-            </section>
+                  <div class="skills">
+                     <!-- <h3 class="skills__title">Skills</h3> -->
+                     <ul class="skills__list"></ul>
+                  </div>
+               </section>
+            </div>
+            <div class="content-wrapper">
+               <section class="projects" id="projects">
+                  <header class="about__header">
+                     <h2 class="main__title">Projects</h2>
+                     <h3 class="main__subtitle">Checkout my work.</h3>
+                  </header>
+                  <ul class="projects__list"></ul>
+               </section>
+            </div>
          </main>
       </div>
       <div class="wrapper">
@@ -221,19 +239,21 @@
                   </button>
                </div>
             </section> -->
-            <section class="footer__nav">
-               <div class="logo noselect">
-                  <a href="#" class="logo__link">
-                     <span class="logo__link-start">coding</span>
-                     <span class="logo__link-end">system</span>
-                  </a>
-               </div>
-               <div class="powered">
-                  <p class="powered_content">
-                     © Powered by Coding System in 2024
-                  </p>
-               </div>
-            </section>
+            <div class="content-wrapper">
+               <section class="footer__nav">
+                  <div class="logo noselect">
+                     <a href="#" class="logo__link">
+                        <span class="logo__link-start">coding</span>
+                        <span class="logo__link-end">system</span>
+                     </a>
+                  </div>
+                  <div class="powered">
+                     <p class="powered_content">
+                        © Powered by Coding System in 2024
+                     </p>
+                  </div>
+               </section>
+            </div>
             <div class="side">
                <svg class="side__links-icon">
                   <use href="../svg/github.svg#github-icon"></use>
@@ -311,7 +331,7 @@
             </div>
          </li>
       </template>
-      <!-- Modal for project details -->
+      <!-- МОДАЛКА -->
       <div
          class="modal"
          id="project-modal"
@@ -326,9 +346,7 @@
                type="button"
                aria-label="Close"
                data-modal-close
-            >
-               <!-- ✕ -->
-            </button>
+            ></button>
 
             <div class="modal__info">
                <h3 class="modal__title" id="modal-title"></h3>

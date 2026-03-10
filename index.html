@@ -45,8 +45,8 @@
       </div>
       <div class="wrapper">
          <main class="main">
-            <section class="hero-bar">
-               <div class="content-wrapper">
+            <div class="content-wrapper">
+               <section class="hero-bar">
                   <div class="hero-bar__content">
                      <div class="hero">
                         <div class="circles">
@@ -73,8 +73,7 @@
                         <p class="hero__description">
                            And this is my small portfolio website. Here you can
                            find some information about me and get to know about
-                           my projects. Thank you for visiting, and I hope you
-                           enjoy exploring my portfolio.
+                           my projects. Thank you for visiting!
                         </p>
 
                         <div class="hero__links">
@@ -121,13 +120,22 @@
                         />
                      </div>
                   </div>
-               </div>
-            </section>
+               </section>
+            </div>
+
             <div class="content-wrapper">
                <section class="about" id="about">
                   <header class="about__header">
                      <h2 class="main__title">About</h2>
                   </header>
+                  <div class="about__bio">
+                     <span class="section-label">Bio</span>
+                     <p class="about__bio-text">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Provident enim voluptas nesciunt a dolorum repellendus
+                        iste qui fuga placeat tempore.
+                     </p>
+                  </div>
                   <!-- <div class="about__main">
                      <div class="about__item myinfo">
                         <div class="about__item__title">
@@ -168,14 +176,14 @@
                      </div>
                   </div> -->
                   <div class="skills">
-                     <!-- <h3 class="skills__title">Skills</h3> -->
+                     <span class="section-label">Technologies</span>
                      <ul class="skills__list"></ul>
                   </div>
                </section>
             </div>
             <div class="content-wrapper">
                <section class="projects" id="projects">
-                  <header class="about__header">
+                  <header class="projects__header">
                      <h2 class="main__title">Projects</h2>
                   </header>
                   <ul class="projects__list"></ul>
@@ -185,6 +193,40 @@
       </div>
       <div class="wrapper">
          <footer class="footer">
+            <div class="content-wrapper">
+               <section class="social">
+                  <h2 class="main__title">Social</h2>
+                  <div class="social__box">
+                     <div class="social__buttons">
+                        <a
+                           class="social__button"
+                           href="https://t.me/coding_system"
+                           target="_blank"
+                           rel="noopener"
+                        >
+                           <i class="bi bi-telegram"></i>
+                           <!-- <span>Telegram</span> -->
+                        </a>
+                        <a
+                           class="social__button"
+                           href="https://github.com/coding-system"
+                           target="_blank"
+                           rel="noopener"
+                        >
+                           <i class="bi bi-github"></i>
+                           <!-- <span>GitHub</span> -->
+                        </a>
+                        <a
+                           class="social__button"
+                           href="mailto:amocodingsystem@gmail.com"
+                        >
+                           <i class="bi bi-envelope"></i>
+                           <!-- <span>Email</span> -->
+                        </a>
+                     </div>
+                  </div>
+               </section>
+            </div>
             <!-- <section class="contacts content-wrapper" id="contacts">
                <div class="contacts__info">
                   <h2 class="main__title">Contacts</h2>
@@ -309,7 +351,10 @@
                   </main>
                   <footer class="info__footer">
                      <div class="info__stack"></div>
-                     <p class="info__footer-text"></p>
+                     <button class="info__footer-more" type="button">
+                        <span>Подробнее</span>
+                        <i class="bi bi-chevron-double-right"></i>
+                     </button>
                   </footer>
                </div>
             </div>

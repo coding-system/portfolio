@@ -6,7 +6,6 @@ export const projects = [
       image: "random.jpg",
       siteLink: "https://codingsystem.ru/",
       githubLink: "https://github.com/coding-system/portfolio",
-      year: "2024",
       instruments: ["html", "sass", "js"],
    },
    {
@@ -16,7 +15,6 @@ export const projects = [
       image: "catalog.jpg",
       siteLink: "https://project.codingsystem.ru/catalog/",
       githubLink: "https://github.com/coding-system/dev-sites-catalog",
-      year: "2024",
       instruments: ["html", "sass", "js"],
    },
    {
@@ -26,7 +24,6 @@ export const projects = [
       image: "random.jpg",
       siteLink: "https://random.codingsystem.ru/",
       githubLink: "https://github.com/coding-system/react-random-roll",
-      year: "2025",
       instruments: ["sass", "ts", "react"],
    },
    {
@@ -36,7 +33,6 @@ export const projects = [
       image: "random.jpg",
       siteLink: "https://project.codingsystem.ru/radio",
       githubLink: "https://github.com/coding-system/vinyl-player",
-      year: "2024",
       instruments: ["html", "sass", "js"],
    },
 ];

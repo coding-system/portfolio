@@ -64,9 +64,14 @@ function renderProjects() {
          );
       }
 
-      // Формируем строку с годом
-      projectItem.querySelector(".info__footer-text").textContent =
-         project.year;
+      const moreButton = projectItem.querySelector(
+         ".info__footer-more, .info__more",
+      );
+      if (moreButton) {
+         moreButton.addEventListener("click", function () {
+            openProjectModal(project);
+         });
+      }
 
       // Обработка иконок инструментов
       const infoStack = projectItem.querySelector(".info__stack");

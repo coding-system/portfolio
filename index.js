@@ -47,14 +47,11 @@ function renderProjects() {
       projectItem.querySelector(".info__title").textContent = project.name;
       projectItem.querySelector(".info__description-text").textContent =
          project.description;
-      projectItem.querySelector(".info__footer-text").textContent =
-         project.year;
-
       // Обновляем ссылки
-      const siteLink = projectItem.querySelector(".preview__links-site");
-      siteLink.href = project.siteLink;
-      const githubLink = projectItem.querySelector(".preview__links-code");
-      githubLink.href = project.githubLink;
+      const siteLink = projectItem.querySelector(".info__link-site");
+      if (siteLink) siteLink.href = project.siteLink;
+      const githubLink = projectItem.querySelector(".info__link-code");
+      if (githubLink) githubLink.href = project.githubLink;
 
       // Обновляем src для изображения
       const image = projectItem.querySelector(".preview__image");
@@ -63,29 +60,26 @@ function renderProjects() {
          image.alt = project.name;
       } else {
          console.warn(
-            "Элемент img с классом .preview__image не найден в шаблоне"
+            "Элемент img с классом .preview__image не найден в шаблоне",
          );
       }
 
+      // Формируем строку с годом
+      projectItem.querySelector(".info__footer-text").textContent =
+         project.year;
+
       // Обработка иконок инструментов
-      const infoSvg = projectItem.querySelector(".info__svg");
-      if (infoSvg) {
+      const infoStack = projectItem.querySelector(".info__stack");
+      if (infoStack) {
+         infoStack.innerHTML = "";
          (project.instruments || []).forEach(function (instrument) {
             const icon = createInstrumentIcon(instrument);
             if (icon) {
-               infoSvg.appendChild(icon);
+               infoStack.appendChild(icon);
             }
          });
       } else {
-         console.warn("Элемент .info__svg не найден в шаблоне проекта");
-      }
-
-      // Кнопка "Подробнее" — открытие модального окна и наполнение данными
-      const detailsBtn = projectItem.querySelector(".preview__links-more");
-      if (detailsBtn) {
-         detailsBtn.addEventListener("click", function () {
-            openProjectModal(project);
-         });
+         console.warn("Элемент .info__stack не найден в шаблоне проекта");
       }
 
       projectsList.appendChild(projectItem);
@@ -119,17 +113,45 @@ function renderSkills() {
 
       // Обновляем иконку
       const iconUse = skillItem.querySelector(".skills-icon use");
+      const iconSvg = skillItem.querySelector(".skills-icon");
       if (iconUse) {
          iconUse.setAttribute("href", "../images/skills/" + skill.icon);
       } else {
          console.warn(
-            "Элемент <use> для иконки не найден в шаблоне навыка " + skill.title
+            "Элемент <use> для иконки не найден в шаблоне навыка " +
+               skill.title,
          );
+      }
+
+      if (iconSvg) {
+         iconSvg.classList.remove(
+            "html-icon",
+            "css-icon",
+            "sass-icon",
+            "js-icon",
+            "ts-icon",
+         );
+
+         if (skill.icon.includes("html")) {
+            iconSvg.classList.add("html-icon");
+         }
+         if (skill.icon.includes("css")) {
+            iconSvg.classList.add("css-icon");
+         }
+         if (skill.icon.includes("sass")) {
+            iconSvg.classList.add("sass-icon");
+         }
+         if (skill.icon.includes("javascript")) {
+            iconSvg.classList.add("js-icon");
+         }
+         if (skill.icon.includes("typescript")) {
+            iconSvg.classList.add("ts-icon");
+         }
       }
 
       // Заполняем список навыков
       const skillsOtherList = skillItem.querySelector(
-         ".skills__item__other-list"
+         ".skills__item__other-list",
       );
       if (skillsOtherList) {
          skillsOtherList.innerHTML = "";
@@ -144,11 +166,110 @@ function renderSkills() {
       } else {
          console.warn(
             "Элемент .skills__item__other-list не найден в шаблоне навыка " +
-               skill.title
+               skill.title,
          );
       }
 
       skillsList.appendChild(skillItem);
+   });
+}
+
+function initProjectTooltips() {
+   const tooltipMap = new WeakMap();
+   const visibleItems = new Set();
+   let activeTarget = null;
+
+   function getTooltip(target) {
+      let tooltip = tooltipMap.get(target);
+      if (tooltip) return tooltip;
+
+      tooltip = document.createElement("div");
+      tooltip.className = "project-tooltip";
+      tooltip.setAttribute("aria-hidden", "true");
+      document.body.appendChild(tooltip);
+      tooltipMap.set(target, tooltip);
+      return tooltip;
+   }
+
+   function positionTooltip(target, tooltip) {
+      const rect = target.getBoundingClientRect();
+      const left = rect.left + rect.width / 2 + window.scrollX;
+      const top = rect.top + window.scrollY;
+      tooltip.style.left = left + "px";
+      tooltip.style.top = top + "px";
+   }
+
+   function showTooltip(target) {
+      const text = target.getAttribute("data-tooltip");
+      if (!text) return;
+      const tooltip = getTooltip(target);
+      tooltip.textContent = text;
+      tooltip.classList.add("is-visible");
+      tooltip.setAttribute("aria-hidden", "false");
+      positionTooltip(target, tooltip);
+      visibleItems.add(target);
+      activeTarget = target;
+   }
+
+   function hideTooltip(target) {
+      if (!target) return;
+      const tooltip = tooltipMap.get(target);
+      if (!tooltip) return;
+      tooltip.classList.remove("is-visible");
+      tooltip.setAttribute("aria-hidden", "true");
+      visibleItems.delete(target);
+      if (activeTarget === target) {
+         activeTarget = null;
+      }
+   }
+
+   document.addEventListener("mouseover", function (e) {
+      const link = e.target.closest(".info__link");
+      if (!link) return;
+      if (activeTarget && activeTarget !== link) {
+         hideTooltip(activeTarget);
+      }
+      showTooltip(link);
+   });
+
+   document.addEventListener("mouseout", function (e) {
+      const link = e.target.closest(".info__link");
+      if (!link) return;
+      if (e.relatedTarget && link.contains(e.relatedTarget)) return;
+      hideTooltip(link);
+   });
+
+   document.addEventListener("focusin", function (e) {
+      const link = e.target.closest(".info__link");
+      if (!link) return;
+      if (activeTarget && activeTarget !== link) {
+         hideTooltip(activeTarget);
+      }
+      showTooltip(link);
+   });
+
+   document.addEventListener("focusout", function (e) {
+      const link = e.target.closest(".info__link");
+      if (!link) return;
+      hideTooltip(link);
+   });
+
+   window.addEventListener(
+      "scroll",
+      function () {
+         visibleItems.forEach(function (target) {
+            const tooltip = tooltipMap.get(target);
+            if (tooltip) positionTooltip(target, tooltip);
+         });
+      },
+      true,
+   );
+
+   window.addEventListener("resize", function () {
+      visibleItems.forEach(function (target) {
+         const tooltip = tooltipMap.get(target);
+         if (tooltip) positionTooltip(target, tooltip);
+      });
    });
 }
 
@@ -159,8 +280,6 @@ function initProjectsScroll() {
 
    // Обработка прокрутки колесиком мыши
    projectsList.addEventListener("wheel", function (e) {
-      e.preventDefault();
-
       // Получаем первую карточку для вычисления ширины
       const firstCard = projectsList.querySelector(".projects__item");
       if (!firstCard) return;
@@ -206,6 +325,7 @@ document.addEventListener("DOMContentLoaded", function () {
    renderProjects();
    renderSkills();
    initProjectsScroll();
+   initProjectTooltips();
 });
 
 // ===== Modal logic =====

@@ -1,5 +1,15 @@
 export const projects = [
    {
+      name: "My Portfolio Website",
+      description: "Мой сайт портфолио",
+      info: "",
+      image: "random.jpg",
+      siteLink: "https://codingsystem.ru/",
+      githubLink: "https://github.com/coding-system/portfolio",
+      year: "2024",
+      instruments: ["html", "sass", "js"],
+   },
+   {
       name: "Developers catalog",
       description: "Каталог сайтов портфолио разработчиков.",
       info: "",
@@ -9,16 +19,6 @@ export const projects = [
       year: "2024",
       instruments: ["html", "sass", "js"],
    },
-   // {
-   //    name: "My Portfolio Website",
-   //    description: "Мой сайт портфолио",
-   //    info: "",
-   //    image: "random.jpg",
-   //    siteLink: "https://codingsystem.ru/",
-   //    githubLink: "https://github.com/coding-system/portfolio",
-   //    year: "2024",
-   //    instruments: ["html", "sass", "js"],
-   // },
    {
       name: "Heroes random",
       description: "Виджет рандома героев для OBS",
@@ -35,7 +35,7 @@ export const projects = [
       info: "специализированный инструмент для стримеров и игроков Dota 2, который сочетает в себе систему случайного выбора героев с продвинутым виджетом отслеживания MMR. Приложение позволяет стримерам интерактивно выбирать героев для своих игр, управлять статистикой MMR в реальном времени и отображать прогресс прямо на стриме. С помощью горячих клавиш можно быстро запускать рулетку героев, управлять состояниями героев (банить/разбанивать, блокировать) и обновлять статистику MMR, что делает стрим более интерактивным и зрелищным для зрителей.",
       image: "random.jpg",
       siteLink: "https://project.codingsystem.ru/radio",
-      githubLink: "https://github.com/coding-system",
+      githubLink: "https://github.com/coding-system/vinyl-player",
       year: "2024",
       instruments: ["html", "sass", "js"],
    },

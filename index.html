@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
    <head>
       <meta charset="UTF-8" />
@@ -14,6 +14,7 @@
          rel="stylesheet"
          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
       />
+
       <title>Coding System</title>
    </head>
    <body class="body">
@@ -102,7 +103,11 @@
                         </div>
                         <div class="hero__buttons">
                            <span class="hero__buttons-item"
-                              ><a class="hero__buttons-item_content"
+                              ><a
+                                 class="hero__buttons-item_content"
+                                 href="./script/resume.pdf"
+                                 target="_blank"
+                                 rel="noopener"
                                  >Read resume</a
                               ></span
                            >
@@ -119,12 +124,11 @@
                </div>
             </section>
             <div class="content-wrapper">
-               <section class="section-line about" id="about">
+               <section class="about" id="about">
                   <header class="about__header">
                      <h2 class="main__title">About</h2>
-                     <h3 class="main__subtitle">Let's get acquainted.</h3>
                   </header>
-                  <div class="about__main">
+                  <!-- <div class="about__main">
                      <div class="about__item myinfo">
                         <div class="about__item__title">
                            <h3 class="about__item__title-text">My info</h3>
@@ -162,7 +166,7 @@
                            </p>
                         </div>
                      </div>
-                  </div>
+                  </div> -->
                   <div class="skills">
                      <!-- <h3 class="skills__title">Skills</h3> -->
                      <ul class="skills__list"></ul>
@@ -173,7 +177,6 @@
                <section class="projects" id="projects">
                   <header class="about__header">
                      <h2 class="main__title">Projects</h2>
-                     <h3 class="main__subtitle">Checkout my work.</h3>
                   </header>
                   <ul class="projects__list"></ul>
                </section>
@@ -266,46 +269,46 @@
             <div class="projects__item-content">
                <div class="preview">
                   <img src="" alt="" class="preview__image" />
-                  <div class="overlay"></div>
-                  <div class="preview__links">
-                     <a
-                        href=""
-                        target="_blank"
-                        class="preview__links-item preview__links-site"
-                     >
-                        <svg class="preview__links-icon-link">
-                           <use href="../images/icons/link.svg#link-icon"></use>
-                        </svg>
-                        <span class="preview__links-text">Открыть сайт</span>
-                     </a>
-                     <a
-                        href=""
-                        target="_blank"
-                        class="preview__links-item preview__links-code"
-                        ><svg class="preview__links-icon-github">
-                           <use
-                              href="../images/icons/github.svg#github-icon"
-                           ></use>
-                        </svg>
-                        <span class="preview__links-text">Открыть код</span></a
-                     >
-                     <button class="preview__links-item preview__links-more">
-                        <svg class="preview__links-icon-more">
-                           <use href="../images/icons/more.svg#more-icon"></use>
-                        </svg>
-                        <span class="preview__links-text">Подробнее</span>
-                     </button>
-                  </div>
                </div>
                <div class="text">
                   <header class="info">
                      <h3 class="info__title"></h3>
-                     <div class="info__svg"></div>
+                     <div class="info__links">
+                        <a
+                           href=""
+                           target="_blank"
+                           rel="noopener"
+                           class="info__link info__link-site"
+                           data-tooltip="Открыть сайт"
+                           aria-label="Open site"
+                        >
+                           <svg class="info__link-icon">
+                              <use
+                                 href="../images/icons/link.svg#link-icon"
+                              ></use>
+                           </svg>
+                        </a>
+                        <a
+                           href=""
+                           target="_blank"
+                           rel="noopener"
+                           class="info__link info__link-code"
+                           data-tooltip="Открыть код"
+                           aria-label="Open code"
+                        >
+                           <svg class="info__link-icon">
+                              <use
+                                 href="../images/icons/github.svg#github-icon"
+                              ></use>
+                           </svg>
+                        </a>
+                     </div>
                   </header>
                   <main class="info__description">
                      <p class="info__description-text"></p>
                   </main>
                   <footer class="info__footer">
+                     <div class="info__stack"></div>
                      <p class="info__footer-text"></p>
                   </footer>
                </div>
@@ -315,20 +318,22 @@
       <template id="skills-template">
          <li class="skills__item">
             <div class="skills__item__box">
-               <svg class="skills-icon html-icon">
-                  <use href=""></use>
-               </svg>
+               <span class="skill-icon-rounded">
+                  <svg class="skills-icon">
+                     <use href=""></use>
+                  </svg>
+               </span>
                <h3 class="skills__item__box-title"></h3>
                <p class="skills__item__box-text"></p>
             </div>
-            <div class="skills__item__other">
+            <!-- <div class="skills__item__other">
                <ul class="skills__item__other-list">
                   <li class="skills__item__other-item"></li>
                   <li class="skills__item__other-item"></li>
                   <li class="skills__item__other-item"></li>
                   <li class="skills__item__other-item"></li>
                </ul>
-            </div>
+            </div> -->
          </li>
       </template>
       <!-- МОДАЛКА -->

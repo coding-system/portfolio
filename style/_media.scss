@@ -1,120 +1,145 @@
-@media (376px <= width) {
-   .body {
-      font-size: 10px;
-   }
+$wrapper-width2560: 1000px;
+$wrapper-width1920: 880px;
+$wrapper-width1366: 880px;
+$wrapper-width992: calc(100vw - 40px);
+$wrapper-width768: calc(100vw - 40px);
+$wrapper-width430: calc(100vw - 30px);
+$wrapper-width375: calc(100vw - 20px);
 
-   .content-wrapper {
-      width: 360px;
-      &:has(.nav) {
-         width: 360px;
-      }
-      &:has(.footer__nav) {
-         width: 100%;
-      }
-   }
-}
-
-@media (576px <= width) {
-   .body {
-      font-size: 10px;
-   }
-
-   .content-wrapper {
-      width: 550px;
-      &:has(.nav) {
-         width: 550px;
-      }
-      &:has(.footer__nav) {
-         width: 100%;
-      }
-   }
-}
-
-@media (768px <= width) {
-   .body {
-      font-size: 10px;
-   }
-
-   .content-wrapper {
-      width: 560px;
-      &:has(.nav) {
-         width: 700px;
-      }
-      &:has(.footer__nav) {
-         width: 100%;
-      }
-   }
-}
-
-@media (992px <= width) {
-   .body {
-      font-size: 7px;
-   }
-   // .skills__list {
-   //    grid-template-rows: 2;
-   //    grid-template-columns: repeat(4, min-content);
-   // }
-
-   // .projects__list {
-   //    grid-template-columns: repeat(2, 1fr);
-   //    grid-template-rows: auto;
-   // }
-
-   .content-wrapper {
-      width: 800px;
-      &:has(.nav) {
-         width: 1000px;
-      }
-      &:has(.footer__nav) {
-         width: 100%;
-      }
-   }
-}
-
-@media (1200px <= width) {
-   .body {
-      font-size: 7px;
-   }
-
-   .content-wrapper {
-      width: 1000px;
-      &:has(.nav) {
-         width: 1250px;
-      }
-      &:has(.footer__nav) {
-         width: 100%;
-      }
-   }
-}
-
-@media (1920px <= width) {
-   .body {
-      font-size: 10px;
-   }
-
-   .content-wrapper {
-      width: 734px;
-      &:has(.nav) {
-         width: 1345px;
-      }
-      &:has(.footer__nav) {
-         width: 100%;
-      }
-   }
-}
-
-@media (2560px <= width) {
+@media (2560px >= width) {
    .body {
       font-size: 14px;
    }
 
    .content-wrapper {
-      width: 1664px;
+      width: $wrapper-width2560;
       &:has(.nav) {
-         width: 2080px;
+         width: $wrapper-width2560;
       }
       &:has(.footer__nav) {
-         width: 100%;
+         width: $wrapper-width2560;
+      }
+   }
+
+   .skills {
+      &__list {
+         grid-template-rows: 1;
+         grid-template-columns: repeat(8, auto);
+      }
+   }
+
+   .projects {
+      &__list {
+         grid-template-columns: repeat(2, 1fr);
+         grid-template-rows: auto;
+      }
+   }
+}
+
+@media (1920px >= width) {
+   .body {
+      font-size: 10px;
+   }
+
+   .content-wrapper {
+      width: $wrapper-width1920;
+      &:has(.nav) {
+         width: $wrapper-width1920;
+      }
+      &:has(.footer__nav) {
+         width: $wrapper-width1920;
+      }
+   }
+}
+
+@media (1366px >= width) {
+   .body {
+      font-size: 10px;
+   }
+
+   .content-wrapper {
+      width: min($wrapper-width1366, calc(100vw - 50px));
+      &:has(.nav) {
+         width: $wrapper-width1366;
+      }
+      &:has(.footer__nav) {
+         width: $wrapper-width1366;
+      }
+   }
+}
+
+@media (992px >= width) {
+   .body {
+      font-size: 7px;
+   }
+
+   .content-wrapper {
+      width: $wrapper-width992;
+      &:has(.nav) {
+         width: $wrapper-width992;
+      }
+      &:has(.footer__nav) {
+         width: $wrapper-width992;
+      }
+   }
+}
+
+@media (768px >= width) {
+   .body {
+      font-size: 7px;
+   }
+
+   .content-wrapper {
+      width: $wrapper-width768;
+      &:has(.nav) {
+         width: $wrapper-width768;
+      }
+      &:has(.footer__nav) {
+         width: $wrapper-width768;
+      }
+   }
+   .skills {
+      &__list {
+         grid-template-rows: 2;
+         grid-template-columns: repeat(4, auto);
+      }
+   }
+   .projects {
+      &__list {
+         grid-template-rows: auto;
+         grid-template-columns: 1fr;
+      }
+   }
+}
+
+@media (430px >= width) {
+   .body {
+      font-size: 6px;
+   }
+
+   .content-wrapper {
+      width: $wrapper-width430;
+      &:has(.nav) {
+         width: $wrapper-width430;
+      }
+      &:has(.footer__nav) {
+         width: $wrapper-width430;
+      }
+   }
+}
+
+@media (375px >= width) {
+   .body {
+      font-size: 6px;
+   }
+
+   .content-wrapper {
+      width: $wrapper-width375;
+      &:has(.nav) {
+         width: $wrapper-width375;
+      }
+      &:has(.footer__nav) {
+         width: $wrapper-width375;
       }
    }
 }

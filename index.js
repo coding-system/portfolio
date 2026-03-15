@@ -325,12 +325,165 @@ function initProjectsScroll() {
    projectsList.setAttribute("tabindex", "0");
 }
 
+function initLangMenu() {
+   const lang = document.querySelector(".lang");
+   if (!lang) return;
+   const toggle = lang.querySelector(".lang__toggle");
+   const options = lang.querySelectorAll(".lang__option");
+   const theme = document.querySelector(".theme");
+
+   function setOpen(isOpen) {
+      lang.classList.toggle("is-open", isOpen);
+      toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+   }
+
+   toggle.addEventListener("click", function (e) {
+      e.stopPropagation();
+      if (theme) {
+         theme.classList.remove("is-open");
+         const themeToggle = theme.querySelector(".theme__toggle");
+         if (themeToggle) themeToggle.setAttribute("aria-expanded", "false");
+      }
+      const isOpen = lang.classList.contains("is-open");
+      setOpen(!isOpen);
+   });
+
+   options.forEach(function (option) {
+      option.addEventListener("click", function () {
+         const nextLang = option.getAttribute("data-lang") || "en";
+         setLanguage(nextLang);
+         setOpen(false);
+      });
+   });
+
+   document.addEventListener("click", function (e) {
+      if (!lang.contains(e.target)) {
+         setOpen(false);
+      }
+   });
+
+   document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") {
+         setOpen(false);
+      }
+   });
+}
+
+function initThemeMenu() {
+   const theme = document.querySelector(".theme");
+   if (!theme) return;
+   const toggle = theme.querySelector(".theme__toggle");
+   const options = theme.querySelectorAll(".theme__option");
+   const lang = document.querySelector(".lang");
+   if (!toggle) return;
+
+   function setOpen(isOpen) {
+      theme.classList.toggle("is-open", isOpen);
+      toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+   }
+
+   toggle.addEventListener("click", function (e) {
+      e.stopPropagation();
+      if (lang) {
+         lang.classList.remove("is-open");
+         const langToggle = lang.querySelector(".lang__toggle");
+         if (langToggle) langToggle.setAttribute("aria-expanded", "false");
+      }
+      const isOpen = theme.classList.contains("is-open");
+      setOpen(!isOpen);
+   });
+
+   options.forEach(function (option) {
+      option.addEventListener("click", function () {
+         setOpen(false);
+      });
+   });
+
+   document.addEventListener("click", function (e) {
+      if (!theme.contains(e.target)) {
+         setOpen(false);
+      }
+   });
+
+   document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") {
+         setOpen(false);
+      }
+   });
+}
+
+function initI18n() {
+   const defaultLang = getPreferredLanguage();
+   setLanguage(defaultLang);
+}
+
+function getPreferredLanguage() {
+   const stored = localStorage.getItem("lang");
+   if (stored) return stored;
+   const browserLang = (navigator.language || "en").toLowerCase();
+   return browserLang.startsWith("ru") ? "ru" : "en";
+}
+
+async function setLanguage(lang) {
+   const langFile = lang === "ru" ? "./i18n/ru.json" : "./i18n/en.json";
+   try {
+      const response = await fetch(langFile, { cache: "no-store" });
+      if (!response.ok) {
+         console.warn("Не удалось загрузить файл перевода", langFile);
+         return;
+      }
+      const translations = await response.json();
+      applyTranslations(translations);
+      localStorage.setItem("lang", lang);
+      document.documentElement.setAttribute("lang", lang);
+   } catch (error) {
+      console.warn("Ошибка загрузки перевода", error);
+   }
+}
+
+function applyTranslations(translations) {
+   document.querySelectorAll("[data-i18n]").forEach(function (el) {
+      const key = el.getAttribute("data-i18n");
+      const value = getTranslationValue(translations, key);
+      if (value) {
+         el.textContent = value;
+      }
+   });
+
+   document.querySelectorAll("[data-i18n-attr]").forEach(function (el) {
+      const raw = el.getAttribute("data-i18n-attr") || "";
+      raw.split(",").forEach(function (pair) {
+         const trimmed = pair.trim();
+         if (!trimmed) return;
+         const parts = trimmed.split(":");
+         if (parts.length < 2) return;
+         const attr = parts.shift().trim();
+         const key = parts.join(":").trim();
+         const value = getTranslationValue(translations, key);
+         if (value) {
+            el.setAttribute(attr, value);
+         }
+      });
+   });
+}
+
+function getTranslationValue(translations, key) {
+   if (!key) return "";
+   return key.split(".").reduce(function (acc, part) {
+      if (!acc || typeof acc !== "object") return "";
+      return acc[part];
+   }, translations);
+}
+
 // Запуск рендеринга при загрузке DOM
 document.addEventListener("DOMContentLoaded", function () {
    renderProjects();
    renderSkills();
    initProjectsScroll();
    initProjectTooltips();
+   initLangMenu();
+   initI18n();
+   initThemeMenu();
 });
 
 // ===== Modal logic =====

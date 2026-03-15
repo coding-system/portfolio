@@ -1,0 +1,36 @@
+{
+   "nav": {
+      "about": "About",
+      "projects": "Projects",
+      "contacts": "Contacts"
+   },
+   "hero": {
+      "hello": "Hi. Welcome to my site",
+      "titlePrefix": "I'm",
+      "titleSuffix": ", a Front-end developer.",
+      "description": "And this is my small portfolio website. Here you can find some information about me and get to know about my projects. Thank you for visiting!",
+      "resume": "Read resume"
+   },
+   "about": {
+      "title": "About",
+      "bioLabel": "Bio",
+      "bioText": "I am a front-end developer who loves clean interfaces and lively details. I focus on usability, performance, and visual clarity.",
+      "skillsLabel": "Technologies"
+   },
+   "projects": {
+      "title": "Projects",
+      "more": "Learn more",
+      "openSite": "Open site",
+      "openCode": "Open code"
+   },
+   "social": {
+      "title": "Social",
+      "telegram": "Telegram",
+      "github": "GitHub",
+      "email": "Email"
+   },
+   "modal": {
+      "openSite": "Open site",
+      "openCode": "Open code"
+   }
+}

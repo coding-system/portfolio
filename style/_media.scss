@@ -117,6 +117,10 @@ $wrapper-width375: calc(100vw - 20px);
       font-size: 6px;
    }
 
+   .header {
+      display: none;
+   }
+
    .content-wrapper {
       width: $wrapper-width430;
       &:has(.nav) {

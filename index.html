@@ -4,6 +4,7 @@
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta name="color-scheme" content="light dark" />
+      <meta name="theme-color" content="#161616" />
       <link rel="stylesheet" href="../style/style.css" />
       <link rel="icon" href="./images/icons/favicon.ico" sizes="any" />
       <link
@@ -30,15 +31,82 @@
                   </div>
                   <ul class="menu">
                      <li class="menu__item">
-                        <a href="#about" class="menu__link">About</a>
+                        <a
+                           href="#about"
+                           class="menu__link"
+                           data-i18n="nav.about"
+                           >About</a
+                        >
                      </li>
                      <li class="menu__item">
-                        <a href="#projects" class="menu__link">Projects</a>
+                        <a
+                           href="#projects"
+                           class="menu__link"
+                           data-i18n="nav.projects"
+                           >Projects</a
+                        >
                      </li>
                      <li class="menu__item">
-                        <a href="#contacts" class="menu__link">Contacts</a>
+                        <a
+                           href="#contacts"
+                           class="menu__link"
+                           data-i18n="nav.contacts"
+                           >Contacts</a
+                        >
                      </li>
                   </ul>
+                  <div class="lang">
+                     <button
+                        class="lang__toggle"
+                        type="button"
+                        aria-haspopup="listbox"
+                        aria-expanded="false"
+                     >
+                        <i class="bi bi-translate"></i>
+                     </button>
+                     <div class="lang__menu" role="listbox">
+                        <button
+                           class="lang__option"
+                           type="button"
+                           data-lang="ru"
+                        >
+                           Русский
+                        </button>
+                        <button
+                           class="lang__option"
+                           type="button"
+                           data-lang="en"
+                        >
+                           English
+                        </button>
+                     </div>
+                  </div>
+                  <div class="theme">
+                     <button
+                        class="theme__toggle"
+                        type="button"
+                        aria-haspopup="listbox"
+                        aria-expanded="false"
+                     >
+                        <i class="bi bi-circle-half"></i>
+                     </button>
+                     <div class="theme__menu" role="listbox">
+                        <button
+                           class="theme__option"
+                           type="button"
+                           data-theme="dark"
+                        >
+                           Темная
+                        </button>
+                        <button
+                           class="theme__option"
+                           type="button"
+                           data-theme="light"
+                        >
+                           Светлая
+                        </button>
+                     </div>
+                  </div>
                </nav>
             </div>
          </header>
@@ -60,17 +128,23 @@
                         </div>
                         <!-- <div class="skobki noselect">&gt;&lt;</div> -->
                         <h1 class="hero__title">
-                           <p class="hero__title_hello">
+                           <p class="hero__title_hello" data-i18n="hero.hello">
                               Hi. Welcome to my site
                            </p>
                            <p class="hero__title_name">
-                              I'm
+                              <span data-i18n="hero.titlePrefix">I'm</span>
                               <span class="hero__title_special"
                                  >Kirill Sheyanov</span
-                              >, a Front-end developer.
+                              >
+                              <span data-i18n="hero.titleSuffix"
+                                 >, a Front-end developer.</span
+                              >
                            </p>
                         </h1>
-                        <p class="hero__description">
+                        <p
+                           class="hero__description"
+                           data-i18n="hero.description"
+                        >
                            And this is my small portfolio website. Here you can
                            find some information about me and get to know about
                            my projects. Thank you for visiting!
@@ -107,6 +181,7 @@
                                  href="./script/resume.pdf"
                                  target="_blank"
                                  rel="noopener"
+                                 data-i18n="hero.resume"
                                  >Read resume</a
                               ></span
                            >
@@ -126,11 +201,13 @@
             <div class="content-wrapper">
                <section class="about" id="about">
                   <header class="about__header">
-                     <h2 class="main__title">About</h2>
+                     <h2 class="main__title" data-i18n="about.title">About</h2>
                   </header>
                   <div class="about__bio">
-                     <span class="section-label">Bio</span>
-                     <p class="about__bio-text">
+                     <span class="section-label" data-i18n="about.bioLabel"
+                        >Bio</span
+                     >
+                     <p class="about__bio-text" data-i18n="about.bioText">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Provident enim voluptas nesciunt a dolorum repellendus
                         iste qui fuga placeat tempore.
@@ -176,7 +253,9 @@
                      </div>
                   </div> -->
                   <div class="skills">
-                     <span class="section-label">Technologies</span>
+                     <span class="section-label" data-i18n="about.skillsLabel"
+                        >Technologies</span
+                     >
                      <ul class="skills__list"></ul>
                   </div>
                </section>
@@ -184,7 +263,9 @@
             <div class="content-wrapper">
                <section class="projects" id="projects">
                   <header class="projects__header">
-                     <h2 class="main__title">Projects</h2>
+                     <h2 class="main__title" data-i18n="projects.title">
+                        Projects
+                     </h2>
                   </header>
                   <ul class="projects__list"></ul>
                </section>
@@ -195,7 +276,7 @@
          <footer class="footer">
             <div class="content-wrapper">
                <section class="social">
-                  <h2 class="main__title">Social</h2>
+                  <h2 class="main__title" data-i18n="social.title">Social</h2>
                   <div class="social__box">
                      <div class="social__buttons">
                         <a
@@ -203,6 +284,7 @@
                            href="https://t.me/coding_system"
                            target="_blank"
                            rel="noopener"
+                           data-i18n-attr="aria-label:social.telegram"
                         >
                            <i class="bi bi-telegram"></i>
                            <!-- <span>Telegram</span> -->
@@ -212,6 +294,7 @@
                            href="https://github.com/coding-system"
                            target="_blank"
                            rel="noopener"
+                           data-i18n-attr="aria-label:social.github"
                         >
                            <i class="bi bi-github"></i>
                            <!-- <span>GitHub</span> -->
@@ -219,6 +302,7 @@
                         <a
                            class="social__button"
                            href="mailto:amocodingsystem@gmail.com"
+                           data-i18n-attr="aria-label:social.email"
                         >
                            <i class="bi bi-envelope"></i>
                            <!-- <span>Email</span> -->
@@ -321,8 +405,9 @@
                            target="_blank"
                            rel="noopener"
                            class="info__link info__link-site"
-                           data-tooltip="Открыть сайт"
+                           data-tooltip="Open site"
                            aria-label="Open site"
+                           data-i18n-attr="data-tooltip:projects.openSite,aria-label:projects.openSite"
                         >
                            <svg class="info__link-icon">
                               <use
@@ -335,8 +420,9 @@
                            target="_blank"
                            rel="noopener"
                            class="info__link info__link-code"
-                           data-tooltip="Открыть код"
+                           data-tooltip="Open code"
                            aria-label="Open code"
+                           data-i18n-attr="data-tooltip:projects.openCode,aria-label:projects.openCode"
                         >
                            <svg class="info__link-icon">
                               <use
@@ -352,7 +438,7 @@
                   <footer class="info__footer">
                      <div class="info__stack"></div>
                      <button class="info__footer-more" type="button">
-                        <span>Подробнее</span>
+                        <span data-i18n="projects.more">Подробнее</span>
                         <i class="bi bi-chevron-double-right"></i>
                      </button>
                   </footer>
@@ -412,6 +498,7 @@
                      rel="noopener"
                      class="modal__link"
                      id="modal-site"
+                     data-i18n="modal.openSite"
                      >Открыть сайт</a
                   >
                   <a
@@ -420,6 +507,7 @@
                      rel="noopener"
                      class="modal__link"
                      id="modal-github"
+                     data-i18n="modal.openCode"
                      >Открыть код</a
                   >
                </div>

@@ -63,7 +63,7 @@ html {
          rgba(17, 0, 255, 0.08),
          transparent 90%
       ),
-      radial-gradient(  
+      radial-gradient(
          70% 70% at 50% 120%,
          rgba(225, 0, 255, 0.08),
          transparent 90%
@@ -181,6 +181,7 @@ html {
    align-items: center;
    gap: 5em;
    justify-self: flex-end;
+   color: $text-major;
 
    &__item {
       position: relative;
@@ -231,6 +232,164 @@ html {
          width: 18px;
          height: 18px;
       }
+   }
+}
+
+.lang {
+   color: $text-major;
+   position: relative;
+   display: inline-flex;
+   align-items: center;
+   margin-left: 2em;
+
+   &__toggle {
+      width: 2.6em;
+      height: 2.6em;
+      border-radius: 0.6em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      opacity: 0.6;
+      &:focus {
+         outline: none;
+      }
+      i {
+         font-size: 2.4em;
+      }
+
+      &:hover {
+         opacity: 1;
+      }
+   }
+
+   &__menu {
+      position: absolute;
+      top: calc(100% + 1em);
+      right: 0;
+      min-width: 12em;
+      padding: 0.6em;
+      border-radius: 0.8em;
+      background-color: #1a1a1a;
+      border: 0.1em solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 1.2em 2.4em rgba(0, 0, 0, 0.35);
+      display: flex;
+      flex-direction: column;
+      gap: 0.4em;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-0.5em);
+      transition:
+         opacity 0.2s ease,
+         transform 0.2s ease,
+         visibility 0.2s ease;
+      z-index: 20;
+   }
+
+   &__option {
+      width: 100%;
+      text-align: left;
+      padding: 0.6em 0.8em;
+      border-radius: 0.6em;
+      background: transparent;
+      border: none;
+      color: rgba(255, 255, 255, 0.85);
+      font-family: $font-default;
+      font-size: 1.3em;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+
+      &:hover {
+         background-color: rgba(255, 255, 255, 0.08);
+      }
+   }
+
+   &.is-open &__menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+   }
+}
+
+.theme {
+   color: $text-major;
+   position: relative;
+   display: inline-flex;
+   align-items: center;
+   margin-left: 1.2em;
+
+   &__toggle {
+      width: 2.6em;
+      height: 2.6em;
+      border-radius: 0.6em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      opacity: 0.6;
+      &:focus {
+         outline: none;
+      }
+      i {
+         font-size: 2.4em;
+      }
+
+      &:hover {
+         opacity: 1;
+      }
+   }
+
+   &__menu {
+      position: absolute;
+      top: calc(100% + 1em);
+      right: 0;
+      min-width: 12em;
+      padding: 0.6em;
+      border-radius: 0.8em;
+      background-color: #1a1a1a;
+      border: 0.1em solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 1.2em 2.4em rgba(0, 0, 0, 0.35);
+      display: flex;
+      flex-direction: column;
+      gap: 0.4em;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-0.5em);
+      transition:
+         opacity 0.2s ease,
+         transform 0.2s ease,
+         visibility 0.2s ease;
+      z-index: 20;
+   }
+
+   &__option {
+      width: 100%;
+      text-align: left;
+      padding: 0.6em 0.8em;
+      border-radius: 0.6em;
+      background: transparent;
+      border: none;
+      color: rgba(255, 255, 255, 0.85);
+      font-family: $font-default;
+      font-size: 1.3em;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+
+      &:hover {
+         background-color: rgba(255, 255, 255, 0.08);
+      }
+   }
+
+   &.is-open &__menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
    }
 }
 
@@ -338,7 +497,6 @@ html {
    justify-content: center;
    align-items: center;
    gap: 1.2em;
-   padding-bottom: 2em;
    max-width: 90rem;
    width: 100%;
    // &::before {
@@ -1059,7 +1217,6 @@ html {
    color: $text-minor;
    // min-height: 17em;
    // height: fit-content;
-   min-height: 100%;
    display: flex;
    flex-direction: column;
    justify-content: space-between;

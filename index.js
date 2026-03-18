@@ -196,6 +196,10 @@ function initProjectTooltips() {
       return tooltip;
    }
 
+   document.querySelectorAll(".info__link").forEach(function (link) {
+      getTooltip(link);
+   });
+
    function positionTooltip(target, tooltip) {
       const rect = target.getBoundingClientRect();
       const left = rect.left + rect.width / 2 + window.scrollX;

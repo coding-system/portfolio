@@ -278,39 +278,72 @@
       <div class="wrapper">
          <footer class="footer">
             <div class="content-wrapper">
-               <section class="social">
-                  <h2 class="main__title" data-i18n="social.title">Social</h2>
-                  <div class="social__box">
-                     <div class="social__buttons">
-                        <a
-                           class="social__button"
-                           href="https://t.me/coding_system"
-                           target="_blank"
-                           rel="noopener"
-                           data-i18n-attr="aria-label:social.telegram"
-                        >
+               <section class="social" id="contacts">
+                  <header class="social__header">
+                     <h2 class="main__title" data-i18n="social.title">
+                        Social
+                     </h2>
+                  </header>
+                  <div class="social__list">
+                     <a
+                        class="social__card social__card--telegram"
+                        href="https://t.me/tom_snn"
+                        target="_blank"
+                        rel="noopener"
+                        data-i18n-attr="aria-label:social.telegram"
+                     >
+                        <span class="social__card-icon">
                            <i class="bi bi-telegram"></i>
-                           <!-- <span>Telegram</span> -->
-                        </a>
-                        <a
-                           class="social__button"
-                           href="https://github.com/coding-system"
-                           target="_blank"
-                           rel="noopener"
-                           data-i18n-attr="aria-label:social.github"
-                        >
+                        </span>
+                        <span class="social__card-body">
+                           <span
+                              class="social__card-label"
+                              data-i18n="social.telegram"
+                              >Telegram</span
+                           >
+                           <span class="social__card-value">@tom_snn</span>
+                        </span>
+                     </a>
+                     <a
+                        class="social__card social__card--github"
+                        href="https://github.com/coding-system"
+                        target="_blank"
+                        rel="noopener"
+                        data-i18n-attr="aria-label:social.github"
+                     >
+                        <span class="social__card-icon">
                            <i class="bi bi-github"></i>
-                           <!-- <span>GitHub</span> -->
-                        </a>
-                        <a
-                           class="social__button"
-                           href="mailto:amocodingsystem@gmail.com"
-                           data-i18n-attr="aria-label:social.email"
-                        >
-                           <i class="bi bi-envelope"></i>
-                           <!-- <span>Email</span> -->
-                        </a>
-                     </div>
+                        </span>
+                        <span class="social__card-body">
+                           <span
+                              class="social__card-label"
+                              data-i18n="social.github"
+                              >GitHub</span
+                           >
+                           <span class="social__card-value"
+                              >github.com/coding-system</span
+                           >
+                        </span>
+                     </a>
+                     <a
+                        class="social__card social__card--email"
+                        href="mailto:amocodingsystem@gmail.com"
+                        data-i18n-attr="aria-label:social.email"
+                     >
+                        <span class="social__card-icon">
+                           <i class="bi bi-mailbox"></i>
+                        </span>
+                        <span class="social__card-body">
+                           <span
+                              class="social__card-label"
+                              data-i18n="social.email"
+                              >Email</span
+                           >
+                           <span class="social__card-value"
+                              >contact@codingsystem.ru</span
+                           >
+                        </span>
+                     </a>
                   </div>
                </section>
             </div>
@@ -489,11 +522,8 @@
 
             <div class="modal__info">
                <h3 class="modal__title" id="modal-title"></h3>
+               <div class="modal__stack" id="modal-stack"></div>
                <p class="modal__description" id="modal-description"></p>
-               <div class="modal__meta">
-                  <span class="modal__year" id="modal-year"></span>
-               </div>
-               <div class="modal__instruments" id="modal-instruments"></div>
                <div class="modal__links">
                   <a
                      href="#"

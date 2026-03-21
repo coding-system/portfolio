@@ -24,7 +24,10 @@
       "openCode": "Open code"
    },
    "social": {
-      "title": "Social",
+      "kicker": "Let's connect",
+      "title": "Contacts",
+      "description": "Pick the most convenient channel. Telegram is best for a quick chat, GitHub shows my work, email is best for detailed requests.",
+      "note": "Open to freelance work, product teams and interesting collaborations.",
       "telegram": "Telegram",
       "github": "GitHub",
       "email": "Email"

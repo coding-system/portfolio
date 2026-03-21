@@ -53,21 +53,23 @@ html {
 
 html {
    font-size: 10px;
+   background-color: #d4b9b9;
 }
 
 .body {
    background-color: #111111;
-   background-image:
-      radial-gradient(
-         60% 60% at 50% 30%,
-         rgba(17, 0, 255, 0.08),
-         transparent 90%
-      ),
-      radial-gradient(
-         70% 70% at 50% 120%,
-         rgba(225, 0, 255, 0.08),
-         transparent 90%
-      );
+
+   // background-image:
+   //    radial-gradient(
+   //       60% 60% at 50% 30%,
+   //       rgba(17, 0, 255, 0.08),
+   //       transparent 90%
+   //    ),
+   //    radial-gradient(
+   //       70% 70% at 50% 120%,
+   //       rgba(255, 255, 255, 0.08),
+   //       transparent 90%
+   //    );
    background-attachment: fixed;
    font-family: $font-default;
    font-size: 1rem;
@@ -1439,62 +1441,219 @@ html {
    align-items: center;
    justify-content: center;
    gap: 3em;
+   position: relative;
 
-   &__box {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 2em;
-      flex-wrap: wrap;
-   }
-
-   &__buttons {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 2em;
-      flex-wrap: wrap;
-   }
-
-   &__button {
-      width: 5em;
-      aspect-ratio: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 0.6em;
-      padding: 0em;
+   &::before {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 auto;
+      width: 22em;
+      height: 22em;
       border-radius: 999px;
-      text-decoration: none;
-      font-family: $font-default;
-      font-size: 1em;
-      color: #ffffff;
-      background-color: rgba(255, 255, 255, 0.06);
-      border: 0.1em solid rgba(255, 255, 255, 0.18);
-      box-shadow: 0 0.8em 1.6em rgba(0, 0, 0, 0.3);
-      transition:
-         background-color 0.2s ease,
-         border-color 0.2s ease,
-         transform 0.2s ease,
-         box-shadow 0.2s ease;
+      background: radial-gradient(
+         circle,
+         rgba(201, 0, 255, 0.16),
+         transparent 68%
+      );
+      filter: blur(2em);
+      pointer-events: none;
+      opacity: 0.7;
+   }
 
-      i {
-         font-size: 3.2em;
+   &__header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+   }
+
+   &__bio {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8em;
+   }
+
+   &__bio-text {
+      margin: 0;
+      font-family: $font-default;
+      font-variation-settings: "wght" 200;
+      font-size: 1.6em;
+      line-height: 165%;
+      color: $text-minor;
+   }
+
+   &__bio-note {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.62);
+      font-size: 1.15em;
+      line-height: 1.6;
+   }
+
+   &__list {
+      width: 100%;
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.2em;
+   }
+
+   &__card {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      min-height: 10.5em;
+      padding: 1.6em 1.4em 1.4em;
+      border-radius: 1.8em;
+      text-decoration: none;
+      color: $text-major;
+      // border: 0.1em solid rgba(255, 255, 255, 0.08);
+      background: linear-gradient(180deg, #2f2f2f 0%, #1a1a1a 100%);
+      box-shadow: 0 1.2em 2.4em rgba(0, 0, 0, 0.28);
+      transition:
+         border-color 0.2s ease,
+         box-shadow 0.2s ease,
+         transform 0.2s ease;
+
+      &::before {
+         content: "";
+         position: absolute;
+         inset: 0;
+         opacity: 0;
+         transition: opacity 0.2s ease;
       }
 
       &:hover {
-         background-color: rgba(255, 255, 255, 0.15);
-         transform: translateY(-2px);
-         box-shadow: 0 1.2em 2.2em rgba(0, 0, 0, 0.4);
+         transform: translateY(-0.2em);
+         border-color: rgba(255, 255, 255, 0.14);
+         box-shadow: 0 1.8em 3.2em rgba(0, 0, 0, 0.34);
+      }
+
+      &:hover::before {
+         opacity: 1;
+      }
+
+      &--telegram::before {
+         background: radial-gradient(
+            circle at top right,
+            rgba(34, 158, 217, 0.22),
+            transparent 55%
+         );
+      }
+
+      &--github::before {
+         background: radial-gradient(
+            circle at top right,
+            rgba(255, 255, 255, 0.12),
+            transparent 55%
+         );
+      }
+
+      &--email::before {
+         background: radial-gradient(
+            circle at top right,
+            rgba(255, 111, 91, 0.2),
+            transparent 55%
+         );
+      }
+   }
+
+   &__card-icon {
+      position: absolute;
+      top: -1.2em;
+      left: -1.2em;
+      z-index: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.1;
+      pointer-events: none;
+      transition: all 0.2s ease;
+
+      i {
+         font-size: 10em;
+         line-height: 1;
+         transition: all 0.2s ease;
+      }
+   }
+
+   &__card:hover &__card-icon i {
+      font-size: 8em;
+   }
+
+   &__card:hover &__card-icon {
+      opacity: 0.2;
+      top: 0.2em;
+      left: 0.8em;
+   }
+
+   &__card-body {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5em;
+      min-width: 0;
+      padding-top: 2.2em;
+      // padding-left: 4.8em;
+   }
+
+   &__card-label {
+      color: rgba(255, 255, 255, 0.62);
+      font-size: 0.9em;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+   }
+
+   &__card-value {
+      font-family: $font-special;
+      font-size: 1.7em;
+      line-height: 1.2;
+   }
+
+   &__card-arrow {
+      position: relative;
+      z-index: 1;
+      margin-left: auto;
+      align-self: flex-start;
+      margin-top: 0.35em;
+      color: rgba(255, 255, 255, 0.45);
+      font-size: 1.35em;
+      transition:
+         color 0.2s ease,
+         transform 0.2s ease;
+   }
+
+   &__card:hover &__card-arrow {
+      color: rgba(255, 255, 255, 0.9);
+      transform: translate(0.12em, -0.12em);
+   }
+
+   &__card--telegram &__card-icon {
+      color: #53c1de;
+   }
+
+   &__card--github &__card-icon {
+      color: #ffffff;
+   }
+
+   &__card--email &__card-icon {
+      color: #ff8f6b;
+   }
+}
+
+@media (max-width: 900px) {
+   .social {
+      &__grid {
+         grid-template-columns: 1fr;
       }
    }
 }
 
 .footer {
    font-size: 1rem;
-   background-color: #161616;
+   background-color: #b4b4b4;
    &__nav {
       font-size: 0.8em;
       backdrop-filter: blur(1em);
@@ -1502,7 +1661,7 @@ html {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background-color: #141414;
+      // background-color: #141414;
 
       div {
          display: flex;

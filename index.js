@@ -498,7 +498,7 @@ function openProjectModal(project) {
    const titleEl = modal.querySelector("#modal-title");
    const descEl = modal.querySelector("#modal-description");
    const yearEl = modal.querySelector("#modal-year");
-   const instrWrap = modal.querySelector("#modal-instruments");
+   const instrWrap = modal.querySelector("#modal-stack");
    const siteEl = modal.querySelector("#modal-site");
    const githubEl = modal.querySelector("#modal-github");
    if (titleEl) titleEl.textContent = project.name || "";

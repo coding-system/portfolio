@@ -133,11 +133,11 @@ html {
 
 html {
   font-size: 10px;
+  background-color: #d4b9b9;
 }
 
 .body {
   background-color: #111111;
-  background-image: radial-gradient(60% 60% at 50% 30%, rgba(17, 0, 255, 0.08), transparent 90%), radial-gradient(70% 70% at 50% 120%, rgba(225, 0, 255, 0.08), transparent 90%);
   background-attachment: fixed;
   font-family: "Inter-Variable", Arial, Helvetica, sans-serif;
   font-size: 1rem;
@@ -1232,53 +1232,168 @@ html {
   align-items: center;
   justify-content: center;
   gap: 3em;
+  position: relative;
 }
-.social__box {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2em;
-  flex-wrap: wrap;
-}
-.social__buttons {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2em;
-  flex-wrap: wrap;
-}
-.social__button {
-  width: 5em;
-  aspect-ratio: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.6em;
-  padding: 0em;
+.social::before {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 auto;
+  width: 22em;
+  height: 22em;
   border-radius: 999px;
-  text-decoration: none;
+  background: radial-gradient(circle, rgba(201, 0, 255, 0.16), transparent 68%);
+  filter: blur(2em);
+  pointer-events: none;
+  opacity: 0.7;
+}
+.social__header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.social__bio {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8em;
+}
+.social__bio-text {
+  margin: 0;
   font-family: "Inter-Variable", Arial, Helvetica, sans-serif;
-  font-size: 1em;
+  font-variation-settings: "wght" 200;
+  font-size: 1.6em;
+  line-height: 165%;
+  color: #c0c0c0;
+}
+.social__bio-note {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 1.15em;
+  line-height: 1.6;
+}
+.social__list {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.2em;
+}
+.social__card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  min-height: 10.5em;
+  padding: 1.6em 1.4em 1.4em;
+  border-radius: 1.8em;
+  text-decoration: none;
+  color: #fff;
+  background: linear-gradient(180deg, #2f2f2f 0%, #1a1a1a 100%);
+  box-shadow: 0 1.2em 2.4em rgba(0, 0, 0, 0.28);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+.social__card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.social__card:hover {
+  transform: translateY(-0.2em);
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 1.8em 3.2em rgba(0, 0, 0, 0.34);
+}
+.social__card:hover::before {
+  opacity: 1;
+}
+.social__card--telegram::before {
+  background: radial-gradient(circle at top right, rgba(34, 158, 217, 0.22), transparent 55%);
+}
+.social__card--github::before {
+  background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.12), transparent 55%);
+}
+.social__card--email::before {
+  background: radial-gradient(circle at top right, rgba(255, 111, 91, 0.2), transparent 55%);
+}
+.social__card-icon {
+  position: absolute;
+  top: -1.2em;
+  left: -1.2em;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.1;
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+.social__card-icon i {
+  font-size: 10em;
+  line-height: 1;
+  transition: all 0.2s ease;
+}
+.social__card:hover .social__card-icon i {
+  font-size: 8em;
+}
+.social__card:hover .social__card-icon {
+  opacity: 0.2;
+  top: 0.2em;
+  left: 0.8em;
+}
+.social__card-body {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  min-width: 0;
+  padding-top: 2.2em;
+}
+.social__card-label {
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.9em;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+.social__card-value {
+  font-family: "Space Grotesk", Arial, Helvetica, sans-serif;
+  font-size: 1.7em;
+  line-height: 1.2;
+}
+.social__card-arrow {
+  position: relative;
+  z-index: 1;
+  margin-left: auto;
+  align-self: flex-start;
+  margin-top: 0.35em;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 1.35em;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.social__card:hover .social__card-arrow {
+  color: rgba(255, 255, 255, 0.9);
+  transform: translate(0.12em, -0.12em);
+}
+.social__card--telegram .social__card-icon {
+  color: #53c1de;
+}
+.social__card--github .social__card-icon {
   color: #ffffff;
-  background-color: rgba(255, 255, 255, 0.06);
-  border: 0.1em solid rgba(255, 255, 255, 0.18);
-  box-shadow: 0 0.8em 1.6em rgba(0, 0, 0, 0.3);
-  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
-.social__button i {
-  font-size: 3.2em;
-}
-.social__button:hover {
-  background-color: rgba(255, 255, 255, 0.15);
-  transform: translateY(-2px);
-  box-shadow: 0 1.2em 2.2em rgba(0, 0, 0, 0.4);
+.social__card--email .social__card-icon {
+  color: #ff8f6b;
 }
 
+@media (max-width: 900px) {
+  .social__grid {
+    grid-template-columns: 1fr;
+  }
+}
 .footer {
   font-size: 1rem;
-  background-color: #161616;
+  background-color: #b4b4b4;
 }
 .footer__nav {
   font-size: 0.8em;
@@ -1287,7 +1402,6 @@ html {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #141414;
 }
 .footer__nav div {
   display: flex;
@@ -1677,138 +1791,219 @@ input:checked + .slider:before {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 2.4rem;
   z-index: 1000;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.1s ease, visibility 0s ease;
+  transform: translate(-1.5em, -1.5em);
+  transition: transform 0.1s ease, opacity 0.1s ease, visibility 0s linear 0.1s;
 }
 .modal.is-open {
   opacity: 1;
+  transform: translate(0, 0);
   visibility: visible;
+  transition: transform 0.2s ease, opacity 0.1s ease, visibility 0s linear 0s;
 }
 .modal__overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.8);
+  background-color: rgba(6, 6, 8, 0.8);
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.1s ease, visibility 0s ease;
+  transition: opacity 0.1s ease, visibility 0s linear 0.1s;
 }
 .modal__overlay.is-open {
   opacity: 1;
   visibility: visible;
+  transition: opacity 0.1s ease, visibility 0s linear 0s;
 }
 .modal__content {
   position: relative;
-  max-width: 60vw;
-  min-height: 80vh;
-  width: 100%;
-  background: #242424;
+  width: min(100%, 72rem);
+  max-height: 80vh;
+  padding: 3.2rem;
+  border-radius: 2rem;
+  background: linear-gradient(180deg, rgba(31, 31, 31, 0.8) 0%, rgba(17, 17, 17, 0.8) 100%);
   color: #fff;
-  border-radius: 1.2em;
-  overflow: hidden;
-  box-shadow: 0 2em 2em rgba(0, 0, 0, 0.8);
+  overflow: auto;
+  box-shadow: 0 2.4rem 5rem rgba(0, 0, 0, 0.5), inset 0 0 0.2em 0.2rem rgba(255, 255, 255, 0.1);
   display: flex;
   flex-direction: column;
-  gap: 2em;
+  gap: 2rem;
+  backdrop-filter: blur(10em);
+}
+.modal__content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(circle at top right, rgba(201, 0, 255, 0.14), transparent 28%), radial-gradient(circle at bottom left, rgba(98, 0, 255, 0.1), transparent 30%);
 }
 .modal__info {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  gap: 1.6rem;
 }
 .modal__title {
+  max-width: calc(100% - 4rem);
+  margin: 0;
   font-family: "Space Grotesk", Arial, Helvetica, sans-serif;
-  font-size: 3.4em;
-  margin-bottom: 0.5em;
-  background-color: #fff;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  color: #151515;
+  font-size: clamp(2.8rem, 4vw, 4.8rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: #fff;
 }
 .modal__description {
+  margin: 0;
+  max-width: 52rem;
   font-family: "Inter-Variable", Arial, Helvetica, sans-serif;
-  font-variation-settings: "wght" 200;
-  font-size: 1.6em;
-  line-height: 160%;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  color: #e2e2e2;
+  font-variation-settings: "wght" 220;
+  font-size: clamp(1.45rem, 2vw, 1.8rem);
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.72);
 }
 .modal__meta {
-  padding-left: 2rem;
-  padding-right: 2rem;
-  margin-top: 1.2em;
-  opacity: 0.7;
-  font-size: 1.4em;
-}
-.modal__instruments {
   display: flex;
-  gap: 0.8em;
-  margin-top: 1.2em;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 0.2rem;
+  font-size: 1.2rem;
 }
-.modal__instruments svg {
-  fill: rgba(253, 253, 253, 0.8);
-  width: 2em;
-  height: 2em;
+.modal__year {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.4rem;
+  padding: 0.45rem 0.95rem;
+  border-radius: 999px;
+  border: 0.1rem solid rgba(255, 255, 255, 0.08);
+  background-color: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.72);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.modal__stack {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.9rem;
+  padding-top: 0.2rem;
+}
+.modal__stack svg {
+  fill: rgba(253, 253, 253, 0.5);
+  width: 2rem;
+  height: 2rem;
+  transition: fill 0.2s ease;
+}
+.modal__stack svg:hover {
+  fill: rgba(253, 253, 253, 0.9);
+}
+.modal__stack .html-icon:hover {
+  fill: #e54c25;
+}
+.modal__stack .css-icon:hover {
+  fill: #42a5f5;
+}
+.modal__stack .sass-icon:hover {
+  fill: #cf649a;
+}
+.modal__stack .js-icon:hover {
+  fill: #ffca28;
+}
+.modal__stack .react-icon:hover {
+  fill: #53c1de;
+}
+.modal__stack .ts-icon:hover {
+  fill: #007acc;
 }
 .modal__links {
   display: flex;
-  gap: 1em;
-  margin-top: 1.6em;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.4rem;
 }
 .modal__link {
-  border: 2px solid #fff;
-  border-radius: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 4.4rem;
+  padding: 0.9rem 1.4rem;
+  border-radius: 0.9rem;
+  border: 0.1rem solid rgba(255, 255, 255, 0.08);
+  background-color: rgba(255, 255, 255, 0.05);
   color: #fff;
-  padding: 0.5em 1em;
   text-decoration: none;
   text-transform: uppercase;
-  transition: 0.2s ease;
+  letter-spacing: 0.08em;
+  font-size: 1.2rem;
+  font-variation-settings: "wght" 500;
+  transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
 }
 .modal__link:hover {
-  background-color: #fff;
-  color: #151515;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 .modal__close {
-  font-size: 2.6rem;
-  width: 1em;
-  height: 1em;
   position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: #000000;
-  border: none;
-  color: #fff;
-  opacity: 0.3;
+  top: 1.6rem;
+  right: 1.6rem;
+  z-index: 2;
+  width: 3.6rem;
+  height: 3.6rem;
+  border: 0.1rem solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.05);
   cursor: pointer;
-  transition: opacity 0.2s linear;
-  border-radius: 0.2em;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
 }
-.modal__close::before {
+.modal__close::before, .modal__close::after {
   position: absolute;
   content: "";
   top: 50%;
   left: 50%;
-  width: 0.08em;
-  height: 0.6em;
-  background-color: #ffffff;
+  width: 0.12rem;
+  height: 1.4rem;
+  background-color: rgba(255, 255, 255, 0.82);
+  border-radius: 999px;
+}
+.modal__close::before {
   transform: translate(-50%, -50%) rotate(45deg);
 }
 .modal__close::after {
-  position: absolute;
-  content: "";
-  top: 50%;
-  left: 50%;
-  width: 0.08em;
-  height: 0.6em;
-  background-color: #ffffff;
   transform: translate(-50%, -50%) rotate(-45deg);
 }
 .modal__close:hover {
-  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.14);
+  transform: rotate(90deg);
+}
+
+@media (max-width: 768px) {
+  .modal {
+    padding: 1.2rem;
+  }
+  .modal__content {
+    max-height: min(92vh, 100%);
+    padding: 2rem 1.6rem 1.8rem;
+    border-radius: 1.4rem;
+  }
+  .modal__title {
+    max-width: calc(100% - 3.8rem);
+  }
+  .modal__links {
+    flex-direction: column;
+  }
+  .modal__link {
+    width: 100%;
+  }
+  .modal__close {
+    top: 1rem;
+    right: 1rem;
+    width: 3.2rem;
+    height: 3.2rem;
+  }
 }

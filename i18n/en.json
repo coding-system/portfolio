@@ -5,7 +5,7 @@
       "contacts": "Contacts"
    },
    "hero": {
-      "hello": "Hi. Welcome to my site",
+      "hello": "Hello",
       "titlePrefix": "I'm",
       "titleSuffix": ", a Front-end developer.",
       "description": "And this is my small portfolio website. Here you can find some information about me and get to know about my projects. Thank you for visiting!",

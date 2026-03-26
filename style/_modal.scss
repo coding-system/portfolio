@@ -8,27 +8,30 @@
    z-index: 1000;
    opacity: 0;
    visibility: hidden;
-   transform: translate(-1.5em, -1.5em);
    transition:
-      transform 0.1s ease,
       opacity 0.1s ease,
       visibility 0s linear 0.1s;
 
    &.is-open {
       opacity: 1;
-
       transform: translate(0, 0);
       visibility: visible;
-      transition:
-         transform 0.2s ease,
-         opacity 0.1s ease,
-         visibility 0s linear 0s;
+
+      & .modal__content {
+         transform: translate(0, 0);
+         opacity: 1;
+         visibility: visible;
+         transition:
+            transform 0.2s ease,
+            opacity 0.1s ease,
+            visibility 0s linear 0s;
+      }
    }
 
    &__overlay {
       position: absolute;
       inset: 0;
-      background-color: rgba(6, 6, 8, 0.8);
+      background-color: $overlay-strong;
       // backdrop-filter: blur(10px);
       opacity: 0;
       visibility: hidden;
@@ -53,18 +56,20 @@
       border-radius: 2rem;
       background: linear-gradient(
          180deg,
-         rgba(31, 31, 31, 0.8) 0%,
-         rgba(17, 17, 17, 0.8) 100%
+         color-mix(in srgb, $surface-card-bottom 80%, transparent) 0%,
+         color-mix(in srgb, $surface-card-inner-bottom 80%, transparent) 100%
       );
       color: $text-major;
       overflow: auto;
       box-shadow:
-         0 2.4rem 5rem rgba(0, 0, 0, 0.5),
-         inset 0 0 0.2em 0.2rem rgba(255, 255, 255, 0.1);
+         0 2.4rem 5rem $shadow-strong,
+         inset 0 0 0.2em 0.2rem $shadow-inset;
       display: flex;
       flex-direction: column;
       gap: 2rem;
       backdrop-filter: blur(10em);
+      transform: translate(-1.5em, -1.5em);
+      transition: transform 0.1s ease;
 
       &::before {
          content: "";
@@ -75,12 +80,12 @@
          background:
             radial-gradient(
                circle at top right,
-               rgba(201, 0, 255, 0.14),
+               color-mix(in srgb, $bright1 14%, transparent),
                transparent 28%
             ),
             radial-gradient(
                circle at bottom left,
-               rgba(98, 0, 255, 0.1),
+               color-mix(in srgb, $bright2 10%, transparent),
                transparent 30%
             );
       }
@@ -112,7 +117,7 @@
       font-variation-settings: "wght" 220;
       font-size: clamp(1.45rem, 2vw, 1.8rem);
       line-height: 1.65;
-      color: rgba(255, 255, 255, 0.72);
+      color: color-mix(in srgb, $text-major 72%, transparent);
    }
 
    &__meta {
@@ -129,9 +134,9 @@
       min-height: 2.4rem;
       padding: 0.45rem 0.95rem;
       border-radius: 999px;
-      border: 0.1rem solid rgba(255, 255, 255, 0.08);
-      background-color: rgba(255, 255, 255, 0.05);
-      color: rgba(255, 255, 255, 0.72);
+      border: 0.1rem solid $border-soft;
+      background-color: $glass-soft;
+      color: color-mix(in srgb, $text-major 72%, transparent);
       letter-spacing: 0.12em;
       text-transform: uppercase;
    }
@@ -144,38 +149,38 @@
       padding-top: 0.2rem;
 
       svg {
-         fill: rgba(253, 253, 253, 0.5);
+         fill: color-mix(in srgb, $text-major 50%, transparent);
          width: 2rem;
          height: 2rem;
          transition: fill 0.2s ease;
 
          &:hover {
-            fill: rgba(253, 253, 253, 0.9);
+            fill: color-mix(in srgb, $text-major 90%, transparent);
          }
       }
 
       .html-icon:hover {
-         fill: #e54c25;
+         fill: $brand-html;
       }
 
       .css-icon:hover {
-         fill: #42a5f5;
+         fill: $brand-css;
       }
 
       .sass-icon:hover {
-         fill: #cf649a;
+         fill: $brand-sass;
       }
 
       .js-icon:hover {
-         fill: #ffca28;
+         fill: $brand-js;
       }
 
       .react-icon:hover {
-         fill: #53c1de;
+         fill: $brand-react;
       }
 
       .ts-icon:hover {
-         fill: #007acc;
+         fill: $brand-ts;
       }
    }
 
@@ -193,8 +198,8 @@
       min-height: 4.4rem;
       padding: 0.9rem 1.4rem;
       border-radius: 0.9rem;
-      border: 0.1rem solid rgba(255, 255, 255, 0.08);
-      background-color: rgba(255, 255, 255, 0.05);
+      border: 0.1rem solid $border-soft;
+      background-color: $glass-soft;
       color: $text-major;
       text-decoration: none;
       text-transform: uppercase;
@@ -208,9 +213,9 @@
          color 0.2s ease;
 
       &:hover {
-         background-color: rgba(255, 255, 255, 0.1);
-         border-color: rgba(255, 255, 255, 0.14);
-         box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+         background-color: $glass-hover;
+         border-color: $border-medium;
+         box-shadow: 0 1rem 2rem $shadow-soft;
       }
    }
 
@@ -221,9 +226,9 @@
       z-index: 2;
       width: 3.6rem;
       height: 3.6rem;
-      border: 0.1rem solid rgba(255, 255, 255, 0.08);
+      border: 0.1rem solid $border-soft;
       border-radius: 999px;
-      background-color: rgba(255, 255, 255, 0.05);
+      background-color: $glass-soft;
       cursor: pointer;
       transition:
          background-color 0.2s ease,
@@ -239,7 +244,7 @@
          left: 50%;
          width: 0.12rem;
          height: 1.4rem;
-         background-color: rgba(255, 255, 255, 0.82);
+         background-color: color-mix(in srgb, $text-major 82%, transparent);
          border-radius: 999px;
       }
 
@@ -252,8 +257,8 @@
       }
 
       &:hover {
-         background-color: rgba(255, 255, 255, 0.1);
-         border-color: rgba(255, 255, 255, 0.14);
+         background-color: $glass-hover;
+         border-color: $border-medium;
          transform: rotate(90deg);
       }
    }

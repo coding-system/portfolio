@@ -6,14 +6,9 @@
       <meta name="color-scheme" content="light dark" />
       <meta name="theme-color" content="#161616" />
       <link rel="stylesheet" href="../style/style.css" />
-      <link rel="icon" href="./images/icons/favicon.ico" sizes="any" />
       <link
          rel="stylesheet"
          href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
-      />
-      <link
-         rel="stylesheet"
-         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
       />
 
       <title>Coding System</title>
@@ -72,6 +67,7 @@
                               type="button"
                               data-lang="ru"
                            >
+                              <span class="lang__label">RU</span>
                               Русский
                            </button>
                            <button
@@ -79,6 +75,7 @@
                               type="button"
                               data-lang="en"
                            >
+                              <span class="lang__label">EN</span>
                               English
                            </button>
                         </div>
@@ -98,6 +95,9 @@
                               type="button"
                               data-theme="dark"
                            >
+                              <span class="theme__label">
+                                 <i class="bi bi-moon"></i>
+                              </span>
                               Темная
                            </button>
                            <button
@@ -105,6 +105,9 @@
                               type="button"
                               data-theme="light"
                            >
+                              <span class="theme__label">
+                                 <i class="bi bi-sun"></i>
+                              </span>
                               Светлая
                            </button>
                         </div>
@@ -136,10 +139,8 @@
                            </p>
                            <p class="hero__title_name">
                               <span data-i18n="hero.titlePrefix">I'm</span>
-                              <span class="hero__title_special"
-                                 >Kirill Sheyanov</span
-                              >
-                              <span data-i18n="hero.titleSuffix"
+                              <span class="hero__title_special">Kirill</span
+                              ><span data-i18n="hero.titleSuffix"
                                  >, a Front-end developer.</span
                               >
                            </p>

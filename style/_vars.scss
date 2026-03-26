@@ -1,223 +1,258 @@
-//Colors
-$body-bg-color: #b3b3b3;
-$wrapper-bg0color: #ffa2a2;
-
-//Vars
-$dark: #151515;
-$middark: #1b1b1b;
-$semidark: #242424;
-$light: #fff;
-$wq: #444444;
-$semilight: #c0c0c0;
-$accent: #6c1bf0;
-$bright1: #c900ff;
-$bright2: #6200ff;
-$focus: #4ee1a0;
-$attention: #ff6f5b;
-$fire: #ffaf0f;
-$orange: #ff5b0f;
-
-//Dark theme
-$dk-bg-major: $dark;
-$dk-bg-minor: $semidark;
-$dk-text-major: $light;
-$dk-text-minor: $semilight;
-$dk-accent: $accent;
-$dk-focus: $focus;
-$dk-attention: $attention;
-$dk-shadow: $middark;
-
-//Light theme
-$lt-bg-major: $light;
-$lt-bg-minor: $semilight;
-$lt-text-major: $dark;
-$lt-text-minor: $semidark;
-$dk-accent: $accent;
-$dk-focus: $focus;
-$dk-attention: $attention;
-$dk-shadow: $semidark;
-
-//Main
-$bg-major: $dk-bg-major;
-$bg-minor: $dk-bg-minor;
-$text-major: $dk-text-major;
-$text-minor: $dk-text-minor;
-$shadow-major: $dk-shadow;
-$accent: $dk-accent;
-$focus: $dk-focus;
-$attention: $dk-attention;
-
-//Font
+// Fonts
 $font-special: "Space Grotesk", Arial, Helvetica, sans-serif;
 $font-default: "Inter-Variable", Arial, Helvetica, sans-serif;
 
-//Other
+// Base palette
+$white: #ffffff;
+$black: #000000;
 
-//
-//
-//
-//
-// .skill {
-//    position: relative;
-//    padding-bottom: 50px;
-//    border-bottom: 2px solid $text-major;
 
-//    &__list {
-//       width: 100%;
-//       padding: 0;
-//       margin-top: 40px;
-//       display: grid;
-//       grid-template-columns: repeat(4, min-content);
 
-//       grid-template-rows: auto;
-//       row-gap: 60px;
-//       // column-gap: 100px;
-//       // row-gap: 80px;
-//       align-items: center;
-//       justify-content: space-around;
-//    }
+$slate-950: #111827;
+$slate-900: #0f172a;
+$slate-800: #1e293b;
+$slate-700: #334155;
+$slate-600: #475569;
+$slate-500: #64748b;
+$slate-400: #94a3b8;
+$slate-300: #cbd5e1;
+$slate-200: #e2e8f0;
+$slate-100: #f1f5f9;
+$slate-50: #f8fafc;
 
-//    &__item {
-//       position: relative;
-//       background-color: #3c3c3c;
-//       border-radius: 10px;
-//       width: 132px;
-//       padding: 10px;
-//       display: flex;
-//       flex-direction: column;
-//       align-items: center;
-//       justify-content: center;
-//       gap: 4px;
-//       box-shadow: inset 0 0 60px $dk-shadow;
-//       transition: all 0.3s ease;
-//       overflow: hidden;
-//       z-index: 2;
+$neutral-950: #111111;
+$neutral-900: #151515;
+$neutral-850: #1b1b1b;
+$neutral-800: #1f1f1f;
+$neutral-750: #242424;
+$neutral-700: #2f2f2f;
+$neutral-650: #353535;
+$neutral-600: #444444;
+$neutral-500: #818181;
+$neutral-400: #a2a2a2;
+$neutral-300: #c0c0c0;
 
-//       &:hover {
-//          scale: 2.1;
-//          transform: rotate(-5deg) scale(1.1);
+$blue-500: #2d6bff;
+$blue-400: #53c1de;
+$blue-600: #007acc;
+$telegram-blue: #229ed9;
 
-//          z-index: 3;
-//       }
+$pink-500: #c900ff;
+$violet-600: #6200ff;
+$violet-500: #6c1bf0;
+$green-400: #4ee1a0;
+$red-400: #ff6f5b;
+$orange-500: #ff8f6b;
+$orange-400: #ffaf0f;
+$yellow-400: #ffca28;
+$yellow-300: #ffc552;
 
-//       &:hover .skill__item__box {
-//          // scale: 0;
-//          transform: translateY(-150%);
-//       }
+$html-orange: #e54c25;
+$css-blue: #42a5f5;
+$sass-pink: #cf649a;
+$react-cyan: #53c1de;
+$ts-blue: #007acc;
 
-//       &:hover .skill__item__other {
-//          // transform: rotate(0deg);
-//          opacity: 1;
-//          transform: translateY(0);
-//       }
+// Theme maps
+$theme-dark: (
+   page-frame-bg: #10131a,
+   page-body-bg: $neutral-900,
+   header-bg: rgba(8, 9, 14, 0.3),
+   header-divider: rgba(0, 0, 0, 0.5),
+   selection-bg: $blue-500,
+   selection-text: $white,
+   surface-base: $neutral-950,
+   surface-elevated: #1a1a1a,
+   surface-panel: $neutral-750,
+   surface-panel-strong: $neutral-850,
+   surface-card-top: $neutral-700,
+   surface-card-bottom: $neutral-800,
+   surface-card-inner-top: #1d1d1d,
+   surface-card-inner-bottom: $neutral-950,
+   surface-muted: $neutral-600,
+   surface-muted-strong: $neutral-650,
+   surface-footer: $neutral-850,
+   surface-tooltip: rgb(233, 233, 233),
+   surface-tooltip-text: $black,
+   surface-scrollbar-track: $white,
+   surface-scrollbar-thumb: $yellow-300,
+   overlay-soft: rgba(17, 17, 17, 0.8),
+   overlay-strong: rgba(6, 6, 8, 0.8),
+   glass-soft: rgba(255, 255, 255, 0.05),
+   glass-hover: rgba(255, 255, 255, 0.1),
+   text-major: $white,
+   text-minor: $neutral-300,
+   text-muted: $neutral-500,
+   text-dim: $neutral-400,
+   text-inverse: $black,
+   text-strong: $neutral-900,
+   border-soft: rgba(255, 255, 255, 0.1),
+   border-medium: rgba(255, 255, 255, 0.1),
+   border-strong: rgba(255, 255, 255, 0.2),
+   shadow-soft: rgba(0, 0, 0, 0.2),
+   shadow-medium: rgba(0, 0, 0, 0.4),
+   shadow-strong: rgba(0, 0, 0, 0.5),
+   shadow-inset: rgba(255, 255, 255, 0.1),
+   shadow-focus: rgba(0, 170, 255, 0.4),
+   accent: $violet-500,
+   bright-1: $pink-500,
+   bright-2: $violet-600,
+   focus: $green-400,
+   attention: $red-400,
+   fire: $orange-400,
+   orange: $orange-500,
+   brand-html: $html-orange,
+   brand-css: $css-blue,
+   brand-sass: $sass-pink,
+   brand-js: $yellow-400,
+   brand-react: $react-cyan,
+   brand-ts: $ts-blue,
+   brand-telegram: $react-cyan,
+   brand-email: $orange-500,
+   brand-sun: #fff000,
+   brand-sky: #5581f8
+);
 
-//       &__box {
-//          position: relative;
-//          border-radius: 10px;
-//          max-height: 150px;
-//          padding: 10px;
-//          display: flex;
-//          flex-direction: column;
-//          align-items: center;
-//          justify-content: center;
-//          gap: 4px;
-//          // box-shadow: inset 0 0 60px $dk-shadow;
-//          transition: all 0.3s ease;
-//          overflow: hidden;
-//          transform: translateY(0);
-//          z-index: 2;
+$theme-light: (
+   page-frame-bg: #dfe7f2,
+   page-body-bg: #f5f7fb,
+   header-bg: rgba(255, 255, 255, 0.3),
+   header-divider: rgba(148, 163, 184, 0.2),
+   selection-bg: $blue-500,
+   selection-text: $white,
+   surface-base: $white,
+   surface-elevated: #eef2f7,
+   surface-panel: #edf1f6,
+   surface-panel-strong: #e3e8f0,
+   surface-card-top: $white,
+   surface-card-bottom: #eef2f8,
+   surface-card-inner-top: $white,
+   surface-card-inner-bottom: #eef2f8,
+   surface-muted: #d7deea,
+   surface-muted-strong: #d0d7e4,
+   surface-footer: #e6ebf3,
+   surface-tooltip: $slate-950,
+   surface-tooltip-text: $white,
+   surface-scrollbar-track: $slate-50,
+   surface-scrollbar-thumb: #d6a63b,
+   overlay-soft: rgba(255, 255, 255, 0.8),
+   overlay-strong: rgba(6, 6, 8, 0.8),
+   glass-soft: rgba(17, 24, 39, 0.04),
+   glass-hover: rgba(17, 24, 39, 0.1),
+   text-major: $slate-950,
+   text-minor: #4b5563,
+   text-muted: #6b7280,
+   text-dim: $slate-400,
+   text-inverse: $white,
+   text-strong: $neutral-900,
+   border-soft: rgba(15, 23, 42, 0.1),
+   border-medium: rgba(15, 23, 42, 0.1),
+   border-strong: rgba(15, 23, 42, 0.2),
+   shadow-soft: rgba(15, 23, 42, 0.1),
+   shadow-medium: rgba(15, 23, 42, 0.14),
+   shadow-strong: rgba(15, 23, 42, 0.2),
+   shadow-inset: rgba(255, 255, 255, 0.6),
+   shadow-focus: rgba(45, 107, 255, 0.2),
+   accent: $violet-500,
+   bright-1: $pink-500,
+   bright-2: $violet-600,
+   focus: $green-400,
+   attention: $red-400,
+   fire: $orange-400,
+   orange: $orange-500,
+   brand-html: $html-orange,
+   brand-css: $css-blue,
+   brand-sass: $sass-pink,
+   brand-js: $yellow-400,
+   brand-react: $react-cyan,
+   brand-ts: $ts-blue,
+   brand-telegram: $telegram-blue,
+   brand-email: $orange-500,
+   brand-sun: #fff000,
+   brand-sky: #5581f8
+);
 
-//          // &:hover .skill__item-discription {
-//          //    opacity: 1;
-//          //    transform: translateY(0);
-//          // }
+// Semantic SCSS aliases backed by CSS custom properties
+$selection-bg: var(--selection-bg);
+$selection-text: var(--selection-text);
+$page-frame-bg: var(--page-frame-bg);
+$page-body-bg: var(--page-body-bg);
+$header-bg: var(--header-bg);
+$header-divider: var(--header-divider);
+$surface-base: var(--surface-base);
+$surface-elevated: var(--surface-elevated);
+$surface-panel: var(--surface-panel);
+$surface-panel-strong: var(--surface-panel-strong);
+$surface-card-top: var(--surface-card-top);
+$surface-card-bottom: var(--surface-card-bottom);
+$surface-card-inner-top: var(--surface-card-inner-top);
+$surface-card-inner-bottom: var(--surface-card-inner-bottom);
+$surface-muted: var(--surface-muted);
+$surface-muted-strong: var(--surface-muted-strong);
+$surface-footer: var(--surface-footer);
+$surface-tooltip: var(--surface-tooltip);
+$surface-tooltip-text: var(--surface-tooltip-text);
+$surface-scrollbar-track: var(--surface-scrollbar-track);
+$surface-scrollbar-thumb: var(--surface-scrollbar-thumb);
+$overlay-soft: var(--overlay-soft);
+$overlay-strong: var(--overlay-strong);
+$glass-soft: var(--glass-soft);
+$glass-hover: var(--glass-hover);
+$text-major: var(--text-major);
+$text-minor: var(--text-minor);
+$text-muted: var(--text-muted);
+$text-dim: var(--text-dim);
+$text-inverse: var(--text-inverse);
+$text-strong: var(--text-strong);
+$border-soft: var(--border-soft);
+$border-medium: var(--border-medium);
+$border-strong: var(--border-strong);
+$shadow-soft: var(--shadow-soft);
+$shadow-medium: var(--shadow-medium);
+$shadow-strong: var(--shadow-strong);
+$shadow-inset: var(--shadow-inset);
+$shadow-focus: var(--shadow-focus);
+$accent: var(--accent);
+$bright1: var(--bright-1);
+$bright2: var(--bright-2);
+$focus: var(--focus);
+$attention: var(--attention);
+$fire: var(--fire);
+$orange: var(--orange);
+$brand-html: var(--brand-html);
+$brand-css: var(--brand-css);
+$brand-sass: var(--brand-sass);
+$brand-js: var(--brand-js);
+$brand-react: var(--brand-react);
+$brand-ts: var(--brand-ts);
+$brand-telegram: var(--brand-telegram);
+$brand-email: var(--brand-email);
 
-//          // &:hover svg {
-//          //    scale: 0;
-//          //    opacity: 0;
-//          //    transform: rotate(-45deg);
-//          // }
-
-//          &-title {
-//             font-family: $font-default;
-//             font-size: 18px;
-//             font-variation-settings: "wght" 400;
-//          }
-
-//          &-text {
-//             font-family: $font-default;
-//             font-size: 14px;
-//             font-variation-settings: "wght" 200;
-//             opacity: 0.5;
-//          }
-
-//          svg {
-//             transition: 0.3s ease;
-//          }
-
-//          .html-icon {
-//             width: 80px;
-//             height: 100px;
-//             fill: #e54c25;
-//          }
-
-//          .css-icon {
-//             width: 80px;
-//             height: 100px;
-//             fill: #42a5f5;
-//          }
-
-//          .sass-icon {
-//             width: 80px;
-//             height: 100px;
-//             fill: #cf649a;
-//          }
-
-//          .js-icon {
-//             width: 80px;
-//             height: 100px;
-//             fill: #ffca28;
-//          }
-
-//          .git-icon {
-//             width: 80px;
-//             height: 100px;
-//          }
-
-//          .figma-icon {
-//             width: 80px;
-//             height: 100px;
-//          }
-
-//          .react-icon {
-//             width: 80px;
-//             height: 100px;
-//          }
-
-//          .ts-icon {
-//             width: 80px;
-//             height: 100px;
-//          }
-//       }
-
-//       &__other {
-//          position: absolute;
-//          top: 0;
-//          left: 0;
-//          transform: translateY(150%);
-//          width: 100%;
-//          height: 100%;
-//          padding: 10px;
-//          box-sizing: border-box;
-//          opacity: 0;
-//          transition: all 0.3s ease;
-
-//          &-discription {
-//             margin: 0;
-//             font-size: 8px;
-//             color: #ffffff;
-//             line-height: 1.4;
-//          }
-//       }
-//    }
-// }
+// Backward-compatible aliases
+$body-bg-color: $page-body-bg;
+$wrapper-bg0color: $page-frame-bg;
+$dark: $text-strong;
+$middark: $surface-panel-strong;
+$semidark: $surface-panel;
+$light: var(--color-white);
+$wq: $surface-muted;
+$semilight: $text-minor;
+$dk-bg-major: $page-body-bg;
+$dk-bg-minor: $surface-panel;
+$dk-text-major: $text-major;
+$dk-text-minor: $text-minor;
+$dk-accent: $accent;
+$dk-focus: $focus;
+$dk-attention: $attention;
+$dk-shadow: $shadow-medium;
+$lt-bg-major: $page-body-bg;
+$lt-bg-minor: $surface-panel;
+$lt-text-major: $text-major;
+$lt-text-minor: $text-minor;
+$lt-accent: $accent;
+$lt-focus: $focus;
+$lt-attention: $attention;
+$lt-shadow: $shadow-medium;
+$bg-major: $page-body-bg;
+$bg-minor: $surface-panel;
+$shadow-major: $shadow-medium;

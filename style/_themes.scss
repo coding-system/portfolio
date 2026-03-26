@@ -1,15 +1,94 @@
-:root.theme-dark {
-   $bg-major: $dk-bg-major;
-   background-color: $bg-major;
+@function theme-token($theme, $token) {
+   @return map-get($theme, $token);
 }
 
-:root.theme-light {
-   $bg-major: $dk-accent;
-   background-color: $lt-bg-major;
+@mixin emit-theme-vars($theme) {
+   --color-white: #{$white};
+
+   --selection-bg: #{theme-token($theme, selection-bg)};
+   --selection-text: #{theme-token($theme, selection-text)};
+
+   --page-frame-bg: #{theme-token($theme, page-frame-bg)};
+   --page-body-bg: #{theme-token($theme, page-body-bg)};
+   --header-bg: #{theme-token($theme, header-bg)};
+   --header-divider: #{theme-token($theme, header-divider)};
+
+   --surface-base: #{theme-token($theme, surface-base)};
+   --surface-elevated: #{theme-token($theme, surface-elevated)};
+   --surface-panel: #{theme-token($theme, surface-panel)};
+   --surface-panel-strong: #{theme-token($theme, surface-panel-strong)};
+   --surface-card-top: #{theme-token($theme, surface-card-top)};
+   --surface-card-bottom: #{theme-token($theme, surface-card-bottom)};
+   --surface-card-inner-top: #{theme-token($theme, surface-card-inner-top)};
+   --surface-card-inner-bottom: #{theme-token($theme, surface-card-inner-bottom)};
+   --surface-muted: #{theme-token($theme, surface-muted)};
+   --surface-muted-strong: #{theme-token($theme, surface-muted-strong)};
+   --surface-footer: #{theme-token($theme, surface-footer)};
+   --surface-tooltip: #{theme-token($theme, surface-tooltip)};
+   --surface-tooltip-text: #{theme-token($theme, surface-tooltip-text)};
+   --surface-scrollbar-track: #{theme-token($theme, surface-scrollbar-track)};
+   --surface-scrollbar-thumb: #{theme-token($theme, surface-scrollbar-thumb)};
+
+   --overlay-soft: #{theme-token($theme, overlay-soft)};
+   --overlay-strong: #{theme-token($theme, overlay-strong)};
+   --glass-soft: #{theme-token($theme, glass-soft)};
+   --glass-hover: #{theme-token($theme, glass-hover)};
+
+   --text-major: #{theme-token($theme, text-major)};
+   --text-minor: #{theme-token($theme, text-minor)};
+   --text-muted: #{theme-token($theme, text-muted)};
+   --text-dim: #{theme-token($theme, text-dim)};
+   --text-inverse: #{theme-token($theme, text-inverse)};
+   --text-strong: #{theme-token($theme, text-strong)};
+
+   --border-soft: #{theme-token($theme, border-soft)};
+   --border-medium: #{theme-token($theme, border-medium)};
+   --border-strong: #{theme-token($theme, border-strong)};
+
+   --shadow-soft: #{theme-token($theme, shadow-soft)};
+   --shadow-medium: #{theme-token($theme, shadow-medium)};
+   --shadow-strong: #{theme-token($theme, shadow-strong)};
+   --shadow-inset: #{theme-token($theme, shadow-inset)};
+   --shadow-focus: #{theme-token($theme, shadow-focus)};
+
+   --accent: #{theme-token($theme, accent)};
+   --bright-1: #{theme-token($theme, bright-1)};
+   --bright-2: #{theme-token($theme, bright-2)};
+   --focus: #{theme-token($theme, focus)};
+   --attention: #{theme-token($theme, attention)};
+   --fire: #{theme-token($theme, fire)};
+   --orange: #{theme-token($theme, orange)};
+
+   --brand-html: #{theme-token($theme, brand-html)};
+   --brand-css: #{theme-token($theme, brand-css)};
+   --brand-sass: #{theme-token($theme, brand-sass)};
+   --brand-js: #{theme-token($theme, brand-js)};
+   --brand-react: #{theme-token($theme, brand-react)};
+   --brand-ts: #{theme-token($theme, brand-ts)};
+   --brand-telegram: #{theme-token($theme, brand-telegram)};
+   --brand-email: #{theme-token($theme, brand-email)};
+   --brand-sun: #{theme-token($theme, brand-sun)};
+   --brand-sky: #{theme-token($theme, brand-sky)};
+}
+
+:root {
+   color-scheme: dark;
+   @include emit-theme-vars($theme-dark);
+}
+
+:root[data-theme="dark"] {
+   color-scheme: dark;
+   @include emit-theme-vars($theme-dark);
+}
+
+:root[data-theme="light"] {
+   color-scheme: light;
+   @include emit-theme-vars($theme-light);
 }
 
 @media (prefers-color-scheme: light) {
-   :root {
-      background-color: #0011ff;
+   :root:not([data-theme]) {
+      color-scheme: light;
+      @include emit-theme-vars($theme-light);
    }
 }

@@ -399,6 +399,8 @@ function initThemeMenu() {
 
    options.forEach(function (option) {
       option.addEventListener("click", function () {
+         const nextTheme = option.getAttribute("data-theme") || "dark";
+         setTheme(nextTheme);
          setOpen(false);
       });
    });
@@ -413,6 +415,59 @@ function initThemeMenu() {
       if (e.key === "Escape") {
          setOpen(false);
       }
+   });
+
+   syncThemeMenuState(theme);
+}
+
+function getPreferredTheme() {
+   const storedTheme = localStorage.getItem("theme");
+   if (storedTheme === "dark" || storedTheme === "light") {
+      return storedTheme;
+   }
+
+   if (
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: light)").matches
+   ) {
+      return "light";
+   }
+
+   return "dark";
+}
+
+function applyTheme(theme) {
+   document.documentElement.setAttribute("data-theme", theme);
+
+   const metaTheme = document.querySelector('meta[name="theme-color"]');
+   if (metaTheme) {
+      metaTheme.setAttribute(
+         "content",
+         theme === "light" ? "#f5f7fb" : "#151515",
+      );
+   }
+
+   const themeEl = document.querySelector(".theme");
+   if (themeEl) {
+      syncThemeMenuState(themeEl);
+   }
+}
+
+function setTheme(theme) {
+   applyTheme(theme);
+   localStorage.setItem("theme", theme);
+}
+
+function syncThemeMenuState(themeEl) {
+   const currentTheme =
+      document.documentElement.getAttribute("data-theme") || "dark";
+
+   themeEl.querySelectorAll(".theme__option").forEach(function (option) {
+      const optionTheme = option.getAttribute("data-theme");
+      const isActive = optionTheme === currentTheme;
+
+      option.classList.toggle("is-active", isActive);
+      option.setAttribute("aria-selected", isActive ? "true" : "false");
    });
 }
 
@@ -480,6 +535,8 @@ function getTranslationValue(translations, key) {
 }
 
 // Запуск рендеринга при загрузке DOM
+applyTheme(getPreferredTheme());
+
 document.addEventListener("DOMContentLoaded", function () {
    renderProjects();
    renderSkills();

@@ -1,5 +1,17 @@
 import { projects, skills } from "./script/projects.js";
 
+// Получить текст на нужном языке
+function getLangText(textObj) {
+   const lang = document.documentElement.getAttribute("lang") || "en";
+   if (typeof textObj === "string") {
+      return textObj;
+   }
+   if (typeof textObj === "object" && textObj !== null) {
+      return textObj[lang] || textObj["en"] || textObj["ru"] || "";
+   }
+   return "";
+}
+
 // Универсальная функция для создания иконки инструмента
 function createInstrumentIcon(instrument) {
    const instrumentIcons = {
@@ -38,15 +50,20 @@ function renderProjects() {
       return;
    }
 
+   // Очищаем список перед новым рендером
+   projectsList.innerHTML = "";
+
    projects.forEach(function (project) {
       const projectItem = projectTemplate.content
          .querySelector(".projects__item")
          .cloneNode(true);
 
-      // Заполняем текстовые поля
-      projectItem.querySelector(".info__title").textContent = project.name;
+      // Заполняем текстовые поля с использованием getLangText
+      projectItem.querySelector(".info__title").textContent = getLangText(
+         project.name,
+      );
       projectItem.querySelector(".info__description-text").textContent =
-         project.description;
+         getLangText(project.description);
       // Обновляем ссылки
       const siteLink = projectItem.querySelector(".info__link-site");
       if (siteLink) siteLink.href = project.siteLink;
@@ -57,7 +74,7 @@ function renderProjects() {
       const image = projectItem.querySelector(".preview__image");
       if (image) {
          image.src = `../images/projects/${project.image}`;
-         image.alt = project.name;
+         image.alt = getLangText(project.name);
       } else {
          console.warn(
             "Элемент img с классом .preview__image не найден в шаблоне",
@@ -105,6 +122,9 @@ function renderSkills() {
       return;
    }
 
+   // Очищаем список перед новым рендером
+   skillsList.innerHTML = "";
+
    skills.forEach(function (skill) {
       const skillItem = skillsTemplate.content
          .querySelector(".skills__item")
@@ -114,7 +134,7 @@ function renderSkills() {
       skillItem.querySelector(".skills__item__box-title").textContent =
          skill.title;
       skillItem.querySelector(".skills__item__box-text").textContent =
-         skill.level;
+         getLangText(skill.level);
 
       // Обновляем иконку
       const iconUse = skillItem.querySelector(".skills-icon use");
@@ -135,6 +155,7 @@ function renderSkills() {
             "sass-icon",
             "js-icon",
             "ts-icon",
+            "react-icon",
          );
 
          if (skill.icon.includes("html")) {
@@ -152,6 +173,9 @@ function renderSkills() {
          if (skill.icon.includes("typescript")) {
             iconSvg.classList.add("ts-icon");
          }
+         if (skill.icon.includes("react")) {
+            iconSvg.classList.add("react-icon");
+         }
       }
 
       // Заполняем список навыков
@@ -160,7 +184,10 @@ function renderSkills() {
       );
       if (skillsOtherList) {
          skillsOtherList.innerHTML = "";
-         skill.skills.forEach(function (skillText) {
+         const skillsArray = Array.isArray(skill.skills)
+            ? skill.skills
+            : getLangText(skill.skills);
+         skillsArray.forEach(function (skillText) {
             if (skillText.trim() !== "") {
                const li = document.createElement("li");
                li.className = "skills__item__other-item";
@@ -495,6 +522,9 @@ async function setLanguage(lang) {
       applyTranslations(translations);
       localStorage.setItem("lang", lang);
       document.documentElement.setAttribute("lang", lang);
+      // Пересчитываем проекты и навыки с новым языком
+      renderProjects();
+      renderSkills();
    } catch (error) {
       console.warn("Ошибка загрузки перевода", error);
    }
@@ -558,8 +588,10 @@ function openProjectModal(project) {
    const instrWrap = modal.querySelector("#modal-stack");
    const siteEl = modal.querySelector("#modal-site");
    const githubEl = modal.querySelector("#modal-github");
-   if (titleEl) titleEl.textContent = project.name || "";
-   if (descEl) descEl.textContent = project.info || project.description || "";
+   if (titleEl) titleEl.textContent = getLangText(project.name) || "";
+   if (descEl)
+      descEl.textContent =
+         getLangText(project.info) || getLangText(project.description) || "";
    if (yearEl) yearEl.textContent = project.year || "";
    if (siteEl) siteEl.href = project.siteLink || "#";
    if (githubEl) githubEl.href = project.githubLink || "#";

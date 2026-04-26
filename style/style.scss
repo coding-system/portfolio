@@ -15,7 +15,7 @@ $header-icon-size: 1.8em;
 
 html {
    font-size: 10px;
-   user-select: none;
+   // user-select: none;
 }
 
 ::selection {
@@ -819,7 +819,7 @@ html {
 // }
 
 .about {
-   user-select: none;
+   // user-select: none;
    font-size: 1rem;
    // position: relative;
    display: flex;
@@ -927,7 +927,7 @@ html {
 
 .skills {
    width: 100%;
-   user-select: none;
+   // user-select: none;
    $tr-time-long: 0.3s;
    $tr-time-short: 0.1s;
    font-size: 1rem;

@@ -322,9 +322,6 @@ ol {
 
 html {
   font-size: 10px;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
 }
 
 ::-moz-selection {
@@ -1017,9 +1014,6 @@ html {
 }
 
 .about {
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
   font-size: 1rem;
   display: flex;
   flex-direction: column;
@@ -1101,9 +1095,6 @@ html {
 
 .skills {
   width: 100%;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
   font-size: 1rem;
   position: relative;
   display: flex;

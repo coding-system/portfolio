@@ -534,8 +534,19 @@ function applyTranslations(translations) {
    document.querySelectorAll("[data-i18n]").forEach(function (el) {
       const key = el.getAttribute("data-i18n");
       const value = getTranslationValue(translations, key);
-      if (value) {
-         el.textContent = value;
+      if (Array.isArray(value)) {
+         const itemClass = el.getAttribute("data-i18n-item-class") || "";
+         el.replaceChildren();
+         value.forEach(function (text) {
+            const paragraph = document.createElement("p");
+            if (itemClass) paragraph.className = itemClass;
+            paragraph.textContent = text;
+            el.appendChild(paragraph);
+         });
+         return;
+      }
+      if (value !== undefined && value !== null) {
+         el.textContent = String(value);
       }
    });
 

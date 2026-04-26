@@ -761,7 +761,7 @@ html {
 .main {
    display: flex;
    flex-direction: column;
-   gap: 3em;
+   gap: 8em;
    font-size: 1rem;
    padding-bottom: 5em;
 
@@ -832,7 +832,13 @@ html {
       // max-width: 90rem;
       display: flex;
       flex-direction: column;
-      gap: 0.8em;
+      gap: 2em;
+   }
+
+   &__bio-texts {
+      display: flex;
+      flex-direction: column;
+      gap: 2em;
    }
 
    &__bio-text {
@@ -918,13 +924,6 @@ html {
       }
    }
 }
-.myinfo {
-   background-color: $bright2;
-}
-
-.education {
-   background-color: $bright1;
-}
 
 .skills {
    width: 100%;
@@ -937,7 +936,7 @@ html {
    display: flex;
    flex-direction: column;
    align-items: flex-start;
-   gap: 1.2em;
+   gap: 2em;
 
    &__title {
       font-size: 4.8em;

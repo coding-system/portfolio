@@ -14,7 +14,11 @@
    "about": {
       "title": "About",
       "bioLabel": "Bio",
-      "bioText": "I am a front-end developer who loves clean interfaces and lively details. I focus on usability, performance, and visual clarity.",
+      "bioText": [
+         "I am a frontend developer who believes an interface is not enough on its own; a product should be clear, intuitive, and genuinely useful for people.",
+         "In my work, I focus not only on visual design but also on interaction logic, performance, and application structure. I aim to write clean, maintainable code and build architecture that keeps projects easy to extend.",
+         "I enjoy thinking through user experience, finding effective solutions, and turning ideas into working interfaces. I continuously explore new approaches and tools to deliver better, more thoughtful products."
+      ],
       "skillsLabel": "Technologies"
    },
    "projects": {
